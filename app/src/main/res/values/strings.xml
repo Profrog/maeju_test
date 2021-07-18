@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">test_drive</string>
+    <string name="file_name">hello world</string>
+    <string name="folder_name">hello world</string>
+    <string name="test">testa</string>
+    <string name="error">error</string>
+</resources>
