@@ -7,38 +7,22 @@
     tools:context=".MainActivity">
 
 
-    <EditText
-        android:id="@+id/name"
+    <TextView
+        android:id="@+id/mainpoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:textSize="20dp"
-        android:text="이름" />
+        android:text="main_point" />
 
-    <EditText
-        android:id="@+id/id"
+    <TextView
+        android:id="@+id/quizpoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/name"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:textSize="20dp"
-        android:text="12161538" />
-
-    <Button
-        android:id="@+id/profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/id"
-        android:text="button"
-        android:onClick="profile"
+        android:layout_below="@+id/mainpoint"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:textSize="20dp"
-        android:textColor="#00AFEC"
-        android:background="#ffffff"
-       />
-
-
+        android:text="quiz_point" />
 
 </RelativeLayout>

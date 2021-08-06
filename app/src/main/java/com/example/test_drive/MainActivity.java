@@ -1,99 +1,62 @@
 package com.example.test_drive;
 
-import androidx.appcompat.app.AppCompatActivity;
-import android.util.Log;
-
-import com.google.android.gms.drive.DriveContents;
-import com.google.android.gms.drive.DriveFile;
-import com.google.android.gms.drive.DriveFolder;
-import com.google.android.gms.drive.MetadataChangeSet;
-import com.google.android.gms.tasks.Continuation;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.Tasks;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 
-public class MainActivity extends Drive_a {
+import androidx.appcompat.app.AppCompatActivity;
 
-    private static final String TAG = "RetrieveContents";
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import android.widget.Toast;
 
-    /**
-     * Text view for file contents
-     */
-    private TextView mFileContents;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Collections;
+import java.util.List;
+import java.lang.Object;
+import android.content.Intent;
+
+
+import android.widget.EditText;
+
+public class MainActivity extends AppCompatActivity{
+
+    private String name01;
+    private String id01;
+    public static Context forstatic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mFileContents = findViewById(R.id.fileContents);
-        mFileContents.setText("");
+        forstatic = this;
+        //getDataFromAPI();
     }
 
-    @Override
-    protected void onDriveClientReady() {
-        pickTextFile()
-                .addOnSuccessListener(this,
-                        driveId -> retrieveContents(driveId.asDriveFile()))
-                .addOnFailureListener(this, e -> {
-                    Log.e(TAG, "No file selected", e);
-                    showMessage(getString(R.string.error));
-                    finish();
-                });
+    public void profile(View v)
+    {
+        EditText n1 = (EditText) findViewById(R.id.name);
+        EditText i1 = (EditText) findViewById(R.id.id);
+
+       name01 = n1.getText().toString();
+       id01 = i1.getText().toString();
+       Intent intent1 = new Intent(getApplicationContext(), Showin.class);
+       startActivity(intent1);
     }
 
-    private void retrieveContents(DriveFile file) {
-        // [START drive_android_open_file]
-        Task<DriveContents> openFileTask =
-                getDriveResourceClient().openFile(file, DriveFile.MODE_READ_ONLY);
-        // [END drive_android_open_file]
-        // [START drive_android_read_contents]
-        openFileTask
-                .continueWithTask(task -> {
-                    DriveContents contents = task.getResult();
-                    // Process contents...
-                    // [START_EXCLUDE]
-                    // [START drive_android_read_as_string]
-                    try (BufferedReader reader = new BufferedReader(
-                            new InputStreamReader(contents.getInputStream()))) {
-                        StringBuilder builder = new StringBuilder();
-                        String line;
-                        while ((line = reader.readLine()) != null) {
-                            builder.append(line).append("\n");
-                        }
-                        showMessage(getString(R.string.file_name));
-                        mFileContents.setText(builder.toString());
-                    }
-                    // [END drive_android_read_as_string]
-                    // [END_EXCLUDE]
-                    // [START drive_android_discard_contents]
-                    Task<Void> discardTask = getDriveResourceClient().discardContents(contents);
-                    // [END drive_android_discard_contents]
-                    return discardTask;
-                })
-                .addOnFailureListener(e -> {
-                    // Handle failure
-                    // [START_EXCLUDE]
-                    Log.e(TAG, "Unable to read contents", e);
-                    showMessage(getString(R.string.error));
-                    finish();
-                    // [END_EXCLUDE]
-                });
-        // [END drive_android_read_contents]
-    }
-
-    public void profile(View v){
-
-
-    }
+    public String returnName01() {return name01;}
+    public String returnId01() {return id01;}
 }
+
