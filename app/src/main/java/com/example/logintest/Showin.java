@@ -13,6 +13,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
+import android.view.View;
 
 import android.widget.Toast;
 import android.content.Context;
@@ -29,9 +30,6 @@ public class Showin extends AppCompatActivity{
 
     private String name02;
     private String id02;
-
-
-
 
 
     @Override
@@ -94,8 +92,20 @@ public class Showin extends AppCompatActivity{
         queue.add(jsonObjectRequest);
     }
 
+    public void refresh(View v)
+    {
+        //Intent intent1 = new Intent(getApplicationContext(), Showin.class);
+        //startActivity(intent1);
+        name02 = ((ProfileActivity)ProfileActivity.profileact).returnName();
+        id02 = ((ProfileActivity)ProfileActivity.profileact).returnHakbun();
+        getDataFromAPI();
+    }
+
     public boolean onSupportNavigateUp(){
         onBackPressed();; // 뒤로가기 버튼이 눌렸을시
         return super.onSupportNavigateUp(); // 뒤로가기 버튼
     }
+
+
+
 }
