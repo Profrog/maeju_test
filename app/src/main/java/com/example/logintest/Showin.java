@@ -30,7 +30,7 @@ public class Showin extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_in);
-        name02 = "김민규";
+        name02 = "강혜연";
         id02 = "12161538";
         getDataFromAPI();
     }
