@@ -1,3 +1,4 @@
+
 package com.example.logintest;
 
 import android.os.Bundle;
@@ -9,6 +10,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
+
 import android.widget.Toast;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -26,12 +31,15 @@ public class Showin extends AppCompatActivity{
     private String id02;
 
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.show_in);
-        name02 = "강혜연";
-        id02 = "12161538";
+        name02 = ((ProfileActivity)ProfileActivity.profileact).returnName();
+        id02 = ((ProfileActivity)ProfileActivity.profileact).returnHakbun();
         getDataFromAPI();
     }
 
@@ -84,5 +92,10 @@ public class Showin extends AppCompatActivity{
         // calling a request queue method
         // and passing our json object
         queue.add(jsonObjectRequest);
+    }
+
+    public boolean onSupportNavigateUp(){
+        onBackPressed();; // 뒤로가기 버튼이 눌렸을시
+        return super.onSupportNavigateUp(); // 뒤로가기 버튼
     }
 }

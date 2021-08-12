@@ -1,7 +1,8 @@
 package com.example.logintest;
-
+import android.content.Context;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -25,6 +26,8 @@ import com.google.firebase.auth.UserInfo;
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener{
     private static final String TAG = "ProfileActivity";
 
+    public static Context profileact;
+
     //firebase auth object
     private FirebaseAuth firebaseAuth;
 
@@ -38,9 +41,14 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private TextView textViewUserLevel;
     private TextView textViewHak;
 
+    private String name="";
+    private String email="";
+    private String hakbun="";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        profileact=this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
@@ -53,8 +61,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         textViewUserLevel=(TextView)findViewById(R.id.textviewUserLevel);
         textViewHak=(TextView)findViewById(R.id.textviewHak);
 
-        String name="";
-        String email="";
+
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
@@ -65,7 +72,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
             }
         }
-        String hakbun=email.substring(0,8);
+        hakbun=email.substring(0,8);
 
         String test="테스트";
 
@@ -82,7 +89,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         //textViewUserEmail의 내용을 변경해 준다.
         textViewUserEmail.setText(user.getEmail()+"으로 로그인 하였습니다.");
-        textViewUserLevel.setText("안녕하세요 "+user.getDisplayName()+"님!");
+        textViewUserLevel.setText("안녕하세요 "+name+"님!");
         textViewHak.setText("학번은 "+hakbun+"입니다.");
 
         //logout button event
@@ -150,5 +157,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         Intent intent1 = new Intent(getApplicationContext(), Showin.class);
         startActivity(intent1);
     }
+
+
+    //이름,학번 리턴함수
+
+    public String returnName(){return name;}
+    public String returnHakbun(){return hakbun;}
 
 }
