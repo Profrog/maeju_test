@@ -61,15 +61,18 @@ public class Showin extends AppCompatActivity{
                         String name_excel = entryObj.getJSONObject("gsx$name").getString("$t");
                         String mp_excel = entryObj.getJSONObject("gsx$mainpoint").getString("$t");
                         String qp_excel = entryObj.getJSONObject("gsx$quizpoint").getString("$t");
+                        String rank_excel = entryObj.getJSONObject("gsx$rank").getString("$t");
                         //userModalArrayList.add(new UserModal(firstName, lastName, email, avatar));
 
-                        System.out.println("heelo" + id02);
+                        //System.out.println("heelo" + id02);
 
                         if(id_excel.equals(id02)){
+                            TextView r1 = (TextView)findViewById(R.id.rank);
                             TextView m1 = (TextView)findViewById(R.id.mainpoint);
                             TextView q1 = (TextView)findViewById(R.id.quizpoint);
-                            m1.setText(mp_excel);
-                            q1.setText(qp_excel);
+                            r1.setText("rank " + rank_excel);
+                            m1.setText("main point " + mp_excel);
+                            q1.setText("quiz point " + qp_excel);
                             break;
                         }
                         //System.out.println("heelo" + firstName);
