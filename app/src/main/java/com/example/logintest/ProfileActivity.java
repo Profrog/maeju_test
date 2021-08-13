@@ -87,6 +87,19 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         //유저가 있다면, null이 아니면 계속 진행
 
+        while(name==null){
+            user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user != null) {
+                for (UserInfo profile : user.getProviderData()) {
+                    // Name, email address
+                    name = profile.getDisplayName();
+                    email = profile.getEmail();
+
+                }
+            }
+
+        }
+
         //textViewUserEmail의 내용을 변경해 준다.
         textViewUserEmail.setText(user.getEmail()+"으로 로그인 하였습니다.");
         textViewUserLevel.setText("안녕하세요 "+name+"님!");
@@ -157,6 +170,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         Intent intent1 = new Intent(getApplicationContext(), Showin.class);
         startActivity(intent1);
     }
+
+
 
 
     //이름,학번 리턴함수

@@ -3,6 +3,8 @@ package com.example.logintest;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +26,9 @@ public class SignUpActivity extends AppCompatActivity {
     private static final String TAG = "SignUpActivity";
     private FirebaseAuth mAuth;
     private Button sign_up;
+
+    //로그아웃 기능 구현 위함
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,10 +71,31 @@ public class SignUpActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            Toast.makeText(SignUpActivity.this, "등록 완료", Toast.LENGTH_SHORT).show();
-                            finish();
+
+
+                            firebaseAuth = FirebaseAuth.getInstance();
+                            firebaseAuth.signOut();
+
+
+                            firebaseAuth.signInWithEmailAndPassword(email,password)
+                                    .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<AuthResult> task) {
+                                            System.out.print(task.isSuccessful());
+                                            if(task.isSuccessful()) {
+                                                Intent intent = new Intent(SignUpActivity.this, ProfileActivity.class);
+                                                startActivity(intent);
+                                                finish();
+
+                                            }
+                                        }
+                                    });
+
+
+//                            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+//                            startActivity(intent);
+//                            Toast.makeText(SignUpActivity.this, "등록 완료", Toast.LENGTH_SHORT).show();
+//                            finish();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
