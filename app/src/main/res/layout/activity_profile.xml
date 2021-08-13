@@ -7,76 +7,79 @@
     android:background="#ffe6b3">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="16dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical">
 
         <ImageView
-            android:src="@mipmap/ic_launcher"
-            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/ic_launcher" />
 
         <TextView
             android:id="@+id/textviewUserLevel"
-            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="" />
 
         <TextView
             android:id="@+id/textviewUserEmail"
-            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="" />
 
 
-
-<!--        학번 값 잘라오는것 테스트용입니다.-->
+        <!--        학번 값 잘라오는것 테스트용입니다.-->
         <TextView
             android:id="@+id/textviewHak"
-            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="" />
 
         <Button
             android:id="@+id/buttonEnter"
-            android:text="앱 들어가기"
-            android:onClick="enter"
-            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:onClick="enter"
+            android:text="앱 들어가기" />
 
         <Button
             android:id="@+id/buttonReserve"
-            android:text="예약하기"
-            android:onClick="enter"
-            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:onClick="reserve"
+            android:text="예약하기" />
 
 
         <Button
             android:id="@+id/buttonLogout"
-            android:text="로그아웃"
-            android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="로그아웃" />
 
         <TextView
-            android:text="회원탈퇴"
             android:id="@+id/textviewDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:text="회원탈퇴" />
     </LinearLayout>
 </RelativeLayout>
