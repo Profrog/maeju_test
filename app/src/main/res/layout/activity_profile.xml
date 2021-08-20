@@ -81,5 +81,13 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="16dp"
             android:text="회원탈퇴" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="주차 인증하기" />
+
     </LinearLayout>
 </RelativeLayout>

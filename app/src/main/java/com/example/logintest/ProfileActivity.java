@@ -45,6 +45,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private String email="";
     private String hakbun="";
 
+    // 인증 버튼
+    Button addSubmit;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +111,16 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         //logout button event
         buttonLogout.setOnClickListener(this);
         textivewDelete.setOnClickListener(this);
+
+        // 주차 인증하기
+        addSubmit=(Button)findViewById(R.id.btn_submit);
+
+        // addSubmit 화면 전환
+        addSubmit.setOnClickListener(view -> {
+
+            Intent intent = new Intent(getApplicationContext(),SubmitActivity.class);
+            startActivity(intent);
+        });
 
     }
 
