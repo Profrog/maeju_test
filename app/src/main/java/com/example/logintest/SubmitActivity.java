@@ -4,6 +4,7 @@ import static com.example.logintest.Configuration.KEY_ACTION;
 import static com.example.logintest.Configuration.KEY_ID;
 import static com.example.logintest.Configuration.KEY_IMAGE;
 import static com.example.logintest.Configuration.KEY_NAME;
+import static com.example.logintest.Configuration.KEY_WEEK;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,9 +15,12 @@ import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,12 +39,15 @@ import java.util.Map;
 
 public class SubmitActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private Spinner chk_week;
+
     // 학번, 이름, 이미지, 이미지 추가 및 제출 버튼
     private EditText editTextUserName;
     private EditText editTextUserId;
     private ImageView imageViewUserImage;
     private Button buttonSubmit,buttonAddImage;
     String userImage;
+    String spinnerWeek;
 
     private final int PICK_IMAGE_REQUEST = 1;
 
@@ -50,6 +57,33 @@ public class SubmitActivity extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_submit);
+
+        // spinner 받아오기
+        chk_week = (Spinner) findViewById(R.id.sp_week);
+
+        // 문자열 배열과 기본 스피너 레이아웃을 사용하여 array adapter 만들기
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.my_array, android.R.layout.simple_dropdown_item_1line);
+
+        // 선택 목록이 나타날 때 사용할 레이아웃을 지정
+        adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+
+        // 스피너에 어댑터 적용
+        chk_week.setAdapter(adapter);
+
+        chk_week.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            // 선택되면
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id){
+                spinnerWeek = chk_week.getSelectedItem().toString().trim();
+            }
+            // 선택 안되면
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+
+        });
 
         editTextUserId = (EditText) findViewById(R.id.et_uid);
         editTextUserName = (EditText) findViewById(R.id.et_uname);
@@ -117,6 +151,7 @@ public class SubmitActivity extends AppCompatActivity implements View.OnClickLis
                 params.put(KEY_ID,userId);
                 params.put(KEY_NAME,userName);
                 params.put(KEY_IMAGE,userImage);
+                params.put(KEY_WEEK,spinnerWeek);
 
                 return params;
             }
