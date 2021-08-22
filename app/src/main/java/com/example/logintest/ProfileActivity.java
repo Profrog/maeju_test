@@ -104,9 +104,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         //textViewUserEmail의 내용을 변경해 준다.
-        textViewUserEmail.setText(user.getEmail()+"으로 로그인 하였습니다.");
+        //textViewUserEmail.setText(user.getEmail()+"으로 로그인 하였습니다.");
         textViewUserLevel.setText("안녕하세요 "+name+"님!");
-        textViewHak.setText("학번은 "+hakbun+"입니다.");
+        //textViewHak.setText("학번은 "+hakbun+"입니다.");
 
         //logout button event
         buttonLogout.setOnClickListener(this);
@@ -189,6 +189,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         startActivity(intent1);
     }
 
+    public void guide(View v)
+    {
+        Intent intent1 = new Intent(getApplicationContext(), Guidein.class);
+        startActivity(intent1);
+    }
 
 
     //이름,학번 리턴함수
