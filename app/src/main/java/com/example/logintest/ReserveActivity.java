@@ -41,7 +41,6 @@ public class ReserveActivity extends AppCompatActivity {
         final TimePicker picker = (TimePicker) findViewById(R.id.timePicker);
         picker.setIs24HourView(true);
 
-
         // 앞서 설정한 값으로 보여주기
         // 없으면 디폴트 값은 현재시간
         SharedPreferences sharedPreferences = getSharedPreferences("daily alarm", MODE_PRIVATE);

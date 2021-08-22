@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="16dp"
+            android:layout_margin="5dp"
             android:text="" />
 
         <TextView
@@ -37,18 +37,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="16dp"
+            android:layout_margin="0dp"
             android:text="" />
 
 
         <!--        학번 값 잘라오는것 테스트용입니다.-->
+
         <TextView
             android:id="@+id/textviewHak"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="16dp"
+            android:layout_margin="0dp"
             android:text="" />
+
+        <Button
+            android:id="@+id/buttonGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:onClick="guide"
+            android:text="매주 1과제 소개" />
+
 
         <Button
             android:id="@+id/buttonEnter"
@@ -56,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:onClick="enter"
-            android:text="앱 들어가기" />
+            android:text="포인트 확인" />
 
         <Button
             android:id="@+id/buttonReserve"

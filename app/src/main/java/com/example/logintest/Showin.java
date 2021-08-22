@@ -10,6 +10,26 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserInfo;
@@ -38,12 +58,83 @@ public class Showin extends AppCompatActivity{
         setContentView(R.layout.show_in);
         name02 = ((ProfileActivity)ProfileActivity.profileact).returnName();
         id02 = ((ProfileActivity)ProfileActivity.profileact).returnHakbun();
-        getDataFromAPI();
+        getItems();
+        //getDataFromAPI();
     }
+
+
+
+    private void getItems() {
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, "https://script.google.com/macros/s/AKfycbwjoi01AaB0Boy1gA2pOBn5PatCYTei6rS-HC3xOX9ME7wtnxi7qGqj3eQIZXqT3dJv/exec?action=getItems",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //System.out.println("hiii" + response);
+                        parseItems(response);
+                    }
+                },
+
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        System.out.println("hiii2" + error);
+
+                    }
+                }
+        );
+
+        int socketTimeOut = 50000;
+        RetryPolicy policy = new DefaultRetryPolicy(socketTimeOut, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+
+        stringRequest.setRetryPolicy(policy);
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(stringRequest);
+
+    }
+
+    private void parseItems(String json) {
+
+
+        try {
+
+            JSONObject jobj = new JSONObject(json);
+            JSONArray jarray = jobj.getJSONArray("items");
+
+            for (int i = 0; i < jarray.length(); i++) {
+
+                JSONObject jo = jarray.getJSONObject(i);
+
+                String id_excel = jo.getString("id");
+                System.out.println(id_excel);
+                String name_excel = jo.getString("name");
+                String mp_excel = jo.getString("mainpoint");
+                String qp_excel = jo.getString("quizpoint");
+                String rank_excel = jo.getString("rank");
+                //System.out.println("hi" + id_excel);
+
+                if (id_excel.equals(id02)) {
+                    TextView r1 = (TextView) findViewById(R.id.rank);
+                    TextView m1 = (TextView) findViewById(R.id.mainpoint);
+                    TextView q1 = (TextView) findViewById(R.id.quizpoint);
+                    r1.setText("rank " + rank_excel);
+                    m1.setText("main point " + mp_excel);
+                    q1.setText("quiz point " + qp_excel);
+                    break;
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
 
     private void getDataFromAPI() {
         // creating a string variable for URL.
-        String url = "https://spreadsheets.google.com/feeds/list/1v8E3EcVawJsX0US5boll4QYPK_qHm3Tt71ZYY4uVwMo/od6/public/values?alt=json";
+        String url = "https://spreadsheets.google.com/feeds/list/1Kg7Qjdwd-HnxaiRSK9fB0UkrOp0nOvKPSiONb50mEP8/od6/public/values?alt=json";
 
         // creating a new variable for our request queue
         RequestQueue queue = Volley.newRequestQueue(Showin.this);
@@ -64,7 +155,7 @@ public class Showin extends AppCompatActivity{
                         String rank_excel = entryObj.getJSONObject("gsx$rank").getString("$t");
                         //userModalArrayList.add(new UserModal(firstName, lastName, email, avatar));
 
-                        //System.out.println("heelo" + id02);
+                        System.out.println("heelo" + id02);
 
                         if(id_excel.equals(id02)){
                             TextView r1 = (TextView)findViewById(R.id.rank);
@@ -101,14 +192,11 @@ public class Showin extends AppCompatActivity{
         //startActivity(intent1);
         name02 = ((ProfileActivity)ProfileActivity.profileact).returnName();
         id02 = ((ProfileActivity)ProfileActivity.profileact).returnHakbun();
-        getDataFromAPI();
+        getItems();
     }
 
     public boolean onSupportNavigateUp(){
         onBackPressed();; // 뒤로가기 버튼이 눌렸을시
         return super.onSupportNavigateUp(); // 뒤로가기 버튼
     }
-
-
-
 }

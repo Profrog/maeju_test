@@ -24,6 +24,7 @@
         <activity android:name=".LoginActivity"/>
         <activity android:name=".ProfileActivity"/>
         <activity android:name=".Showin"></activity>
+        <activity android:name=".Guidein"></activity>
         <activity android:name=".ReserveActivity"/>
 
         <receiver android:name=".DeviceBootReceiver"
