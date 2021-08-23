@@ -42,8 +42,8 @@ public class SubmitActivity extends AppCompatActivity implements View.OnClickLis
     private Spinner chk_week;
 
     // 학번, 이름, 이미지, 이미지 추가 및 제출 버튼
-    private EditText editTextUserName;
-    private EditText editTextUserId;
+    //private EditText editTextUserName;
+    //private EditText editTextUserId;
     private ImageView imageViewUserImage;
     private Button buttonSubmit,buttonAddImage;
     String userImage;
@@ -85,8 +85,8 @@ public class SubmitActivity extends AppCompatActivity implements View.OnClickLis
 
         });
 
-        editTextUserId = (EditText) findViewById(R.id.et_uid);
-        editTextUserName = (EditText) findViewById(R.id.et_uname);
+        //editTextUserId = (EditText) findViewById(R.id.et_uid);
+        //editTextUserName = (EditText) findViewById(R.id.et_uname);
         imageViewUserImage=(ImageView)findViewById(R.id.iv_uphoto);
 
 
@@ -129,8 +129,8 @@ public class SubmitActivity extends AppCompatActivity implements View.OnClickLis
     // google spread sheet 전송
     private void addUser(){
         final ProgressDialog loading = ProgressDialog.show(this,"Uploading...","Please wait...",false,false);
-        final String userId = editTextUserId.getText().toString().trim();
-        final String userName = editTextUserName.getText().toString().trim();
+        final String userId = ((ProfileActivity)ProfileActivity.profileact).returnHakbun();
+        final String userName = ((ProfileActivity)ProfileActivity.profileact).returnName();
 
         Log.e("null","values"+userImage);
 
@@ -187,7 +187,7 @@ public class SubmitActivity extends AppCompatActivity implements View.OnClickLis
             try {
                 // 갤러리 및 드라이브로부터 bitmap get
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                rbitmap = getResizedBitmap(bitmap,250); // bitmap 형식의 이미지를 imageview 표시하기 위해 크기 조절
+                rbitmap = getResizedBitmap(bitmap,750); // bitmap 형식의 이미지를 imageview 표시하기 위해 크기 조절
                 userImage = getStringImage(rbitmap);
                 imageViewUserImage.setImageBitmap(rbitmap);
             } catch (IOException e) {
