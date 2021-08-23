@@ -38,7 +38,7 @@ public class DeviceBootReceiver extends BroadcastReceiver {
             nextNotifyTime.setTimeInMillis(sharedPreferences.getLong("nextNotifyTime", millis));
 
             if (current_calendar.after(nextNotifyTime)) {
-                nextNotifyTime.add(Calendar.DATE, 1);
+                nextNotifyTime.add(Calendar.DATE, 7);
             }
 
             Date currentDateTime = nextNotifyTime.getTime();

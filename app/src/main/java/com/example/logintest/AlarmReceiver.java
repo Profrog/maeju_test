@@ -63,7 +63,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
                 .setTicker("{Time to watch some cool stuff!}")
                 .setContentTitle("매주 1과제 알림")
-                .setContentText("알림입니다아아아아ㅏ~~~")
+                .setContentText("어느 덧 과제 제출의 시간이 다가왔습니다~😆😆😆 ")
                 .setContentInfo("INFO")
                 .setContentIntent(pendingI);
 
@@ -75,7 +75,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             Calendar nextNotifyTime = Calendar.getInstance();
 
             // 내일 같은 시간으로 알람시간 결정
-            nextNotifyTime.add(Calendar.DATE, 1);
+            nextNotifyTime.add(Calendar.DATE, 7);
 
             //  Preference에 설정한 값 저장
             SharedPreferences.Editor editor = context.getSharedPreferences("daily alarm", MODE_PRIVATE).edit();
