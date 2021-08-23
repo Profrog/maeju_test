@@ -1,44 +1,32 @@
 package com.example.logintest;
 
-
 import android.app.AlarmManager;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Locale;
 
-
-public class ReserveActivity extends AppCompatActivity {
-    Boolean dailyNotify = false; // 무조건 알람을 사용
+public class ReserveActivity_attend extends AppCompatActivity {
+    Boolean dailyNotify = true; // 무조건 알람을 사용
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.reserve);
+        setContentView(R.layout.reserve_attend);
         Calendar calendar = Calendar.getInstance();
 
 
@@ -49,8 +37,8 @@ public class ReserveActivity extends AppCompatActivity {
 
                 dailyNotify=true;
                 calendar.setTimeInMillis(System.currentTimeMillis());
-                calendar.set(Calendar.DAY_OF_WEEK,Calendar.SUNDAY);
-                calendar.set(Calendar.HOUR_OF_DAY, 21);
+                calendar.set(Calendar.DAY_OF_WEEK,Calendar.TUESDAY);
+                calendar.set(Calendar.HOUR_OF_DAY, 22);
                 calendar.set(Calendar.MINUTE, 0);
                 calendar.set(Calendar.SECOND, 0);
 
@@ -60,7 +48,7 @@ public class ReserveActivity extends AppCompatActivity {
                 }
 
                 Date currentDateTime = calendar.getTime();
-                String date_text = new SimpleDateFormat("yyyy년 MM월 dd일 EE요일 a hh시 mm분 ", Locale.getDefault()).format(currentDateTime);
+                String date_text = new SimpleDateFormat("yyyy년 MM월 dd일 EE요일 a hh시 mm분 ss초", Locale.getDefault()).format(currentDateTime);
                 Toast.makeText(getApplicationContext(), date_text + "으로 알람이 설정되었습니다!", Toast.LENGTH_SHORT).show();
 
                 //  Preference에 설정한 값 저장
@@ -87,8 +75,8 @@ public class ReserveActivity extends AppCompatActivity {
 
     void diaryNotification(Calendar calendar) {
         PackageManager pm = this.getPackageManager();
-        ComponentName receiver = new ComponentName(this, DeviceBootReceiver.class);
-        Intent alarmIntent = new Intent(this, AlarmReceiver.class);
+        ComponentName receiver = new ComponentName(this, DeviceBootReceiver_attend.class);
+        Intent alarmIntent = new Intent(this, AlarmReceiver_attend.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
@@ -99,8 +87,7 @@ public class ReserveActivity extends AppCompatActivity {
 
             if (alarmManager != null) {
 
-                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                        AlarmManager.INTERVAL_DAY, pendingIntent);
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),AlarmManager.INTERVAL_HOUR, pendingIntent);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);

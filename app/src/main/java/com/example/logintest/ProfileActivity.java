@@ -184,8 +184,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         startActivity(intent1);
     }
 
-    public void reserve(View v){
-        Intent intent1 = new Intent(getApplicationContext(), ReserveActivity.class);
+    public void reserve_attend(View v){
+        Intent intent1 = new Intent(getApplicationContext(), ReserveActivity_attend.class);
+        startActivity(intent1);
+    }
+
+    public void reserve_quiz(View v){
+        Intent intent1 = new Intent(getApplicationContext(), ReserveActivity_quiz.class);
         startActivity(intent1);
     }
 

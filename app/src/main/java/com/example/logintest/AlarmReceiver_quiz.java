@@ -1,5 +1,7 @@
 package com.example.logintest;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -16,10 +18,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-
-import static android.content.Context.MODE_PRIVATE;
-
-public class AlarmReceiver extends BroadcastReceiver {
+public class AlarmReceiver_quiz extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
@@ -43,8 +42,8 @@ public class AlarmReceiver extends BroadcastReceiver {
             builder.setSmallIcon(R.drawable.ipp); //mipmap 사용시 Oreo 이상에서 시스템 UI 에러남
 
 
-            String channelName ="매일 알람 채널";
-            String description = "매일 정해진 시간에 알람합니다.";
+            String channelName ="퀴즈 채널";
+            String description = "퀴즈 알림입니다.";
             int importance = NotificationManager.IMPORTANCE_HIGH; //소리와 알림메시지를 같이 보여줌
 
             NotificationChannel channel = new NotificationChannel("default", channelName, importance);
@@ -62,8 +61,8 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setWhen(System.currentTimeMillis())
 
                 .setTicker("{Time to watch some cool stuff!}")
-                .setContentTitle("매주 1과제 알림")
-                .setContentText("어느 덧 과제 제출의 시간이 다가왔습니다~😆😆😆 ")
+                .setContentTitle("매주 1과제 퀴즈 알림")
+                .setContentText("어느 덧 퀴즈 마감시간이 다가왔습니다~😆😆😆 ")
                 .setContentInfo("INFO")
                 .setContentIntent(pendingI);
 
@@ -75,7 +74,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             Calendar nextNotifyTime = Calendar.getInstance();
 
             // 내일 같은 시간으로 알람시간 결정
-            nextNotifyTime.add(Calendar.DATE, 7);
+            nextNotifyTime.add(Calendar.DATE, 1);
 
             //  Preference에 설정한 값 저장
             SharedPreferences.Editor editor = context.getSharedPreferences("daily alarm", MODE_PRIVATE).edit();
@@ -88,4 +87,3 @@ public class AlarmReceiver extends BroadcastReceiver {
         }
     }
 }
-

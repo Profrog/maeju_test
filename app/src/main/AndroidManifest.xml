@@ -25,17 +25,23 @@
         <activity android:name=".ProfileActivity"/>
         <activity android:name=".Showin"></activity>
         <activity android:name=".Guidein"></activity>
-        <activity android:name=".ReserveActivity"/>
         <activity android:name=".SubmitActivity"/>
-
-        <receiver android:name=".DeviceBootReceiver"
+        <activity android:name=".ReserveActivity_attend"/>
+        <activity android:name=".ReserveActivity_quiz"/>
+        <receiver android:name=".DeviceBootReceiver_attend"
             android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
-        <receiver android:name=".AlarmReceiver" />
+        <receiver android:name=".DeviceBootReceiver_quiz"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".AlarmReceiver_attend" />
+        <receiver android:name=".AlarmReceiver_quiz" />
     </application>
 
 </manifest>
