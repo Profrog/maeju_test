@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">매주 1과제</string>
+    <string name="user_id">user_id</string>
+    <string name="user_name">user_name</string>
+    <string name="add_image">add_image</string>
+    <string name="제출">제출</string>
+</resources>
