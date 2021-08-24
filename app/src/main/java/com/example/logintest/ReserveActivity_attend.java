@@ -11,9 +11,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -29,10 +32,25 @@ public class ReserveActivity_attend extends AppCompatActivity {
         setContentView(R.layout.reserve_attend);
         Calendar calendar = Calendar.getInstance();
 
+        //알람 확인
+        TextView status=(TextView) findViewById(R.id.status);
+
+        Intent alarmIntent = new Intent(this, AlarmReceiver_attend.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, PendingIntent.FLAG_NO_CREATE);
+
+        if(pendingIntent==null){
+            status.setText("상태: 꺼짐");
+        }
+        else{
+            status.setText("상태: 켜짐");
+        }
+
+        //버튼 on 눌렀을 때
         Button buttonOn = (Button) findViewById(R.id.buttonOn);
         buttonOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
+                status.setText("상태: 켜짐");
 
                 dailyNotify=true;
                 calendar.setTimeInMillis(System.currentTimeMillis());
@@ -64,7 +82,7 @@ public class ReserveActivity_attend extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
                 dailyNotify=false;
-
+                status.setText("상태: 꺼짐");
                 diaryNotification(calendar);
             }
         });
@@ -93,6 +111,7 @@ public class ReserveActivity_attend extends AppCompatActivity {
             if(alarmManager!=null){
                 Toast.makeText(getApplicationContext(), "알람이 해제되었습니다!", Toast.LENGTH_SHORT).show();
                 alarmManager.cancel(pendingIntent);
+                pendingIntent.cancel();
             }
             // 부팅 후 실행되는 리시버 사용가능하게 설정
             pm.setComponentEnabledSetting(receiver,
