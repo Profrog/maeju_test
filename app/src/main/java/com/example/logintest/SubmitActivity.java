@@ -155,7 +155,7 @@ public class SubmitActivity extends AppCompatActivity implements View.OnClickLis
                 // 전송할 값
                 Map<String,String> params = new HashMap<>();
                 params.put(KEY_ACTION,"insert");
-                params.put(KEY_DATE, timeStamp);
+                // params.put(KEY_DATE, timeStamp);
                 params.put(KEY_ID,userId);
                 params.put(KEY_NAME,userName);
                 params.put(KEY_IMAGE,userImage);
