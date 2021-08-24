@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="my_array">
+        <item>1주차</item>
+        <item>2주차</item>
+        <item>3주차</item>
+        <item>4주차</item>
+        <item>5주차</item>
+        <item>6주차</item>
+        <item>7주차</item>
+        <item>8주차</item>
+        <item>9주차</item>
+        <item>10주차</item>
+        <item>11주차</item>
+        <item>12주차</item>
+        <item>13주차</item>
+        <item>14주차</item>
+        <item>15주차</item>
+        <item>16주차</item>
+        <item>17주차</item>
+        <item>18주차</item>
+        <item>19주차</item>
+        <item>20주차</item>
+    </string-array>
+</resources>
