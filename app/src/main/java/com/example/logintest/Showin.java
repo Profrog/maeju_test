@@ -50,6 +50,7 @@ public class Showin extends AppCompatActivity{
 
     private String name02;
     private String id02;
+    private String email02;
 
 
     @Override
