@@ -21,14 +21,13 @@ import java.util.Date;
 import java.util.Locale;
 
 public class ReserveActivity_attend extends AppCompatActivity {
-    Boolean dailyNotify = true; // 무조건 알람을 사용
+    Boolean dailyNotify = false; // 무조건 알람을 사용
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reserve_attend);
         Calendar calendar = Calendar.getInstance();
-
 
         Button buttonOn = (Button) findViewById(R.id.buttonOn);
         buttonOn.setOnClickListener(new View.OnClickListener() {
@@ -37,8 +36,8 @@ public class ReserveActivity_attend extends AppCompatActivity {
 
                 dailyNotify=true;
                 calendar.setTimeInMillis(System.currentTimeMillis());
-                calendar.set(Calendar.DAY_OF_WEEK,Calendar.TUESDAY);
-                calendar.set(Calendar.HOUR_OF_DAY, 22);
+                calendar.set(Calendar.DAY_OF_WEEK,Calendar.SUNDAY);
+                calendar.set(Calendar.HOUR_OF_DAY, 21);
                 calendar.set(Calendar.MINUTE, 0);
                 calendar.set(Calendar.SECOND, 0);
 
@@ -48,7 +47,7 @@ public class ReserveActivity_attend extends AppCompatActivity {
                 }
 
                 Date currentDateTime = calendar.getTime();
-                String date_text = new SimpleDateFormat("yyyy년 MM월 dd일 EE요일 a hh시 mm분 ss초", Locale.getDefault()).format(currentDateTime);
+                String date_text = new SimpleDateFormat("yyyy년 MM월 dd일 EE요일 a hh시 mm분", Locale.getDefault()).format(currentDateTime);
                 Toast.makeText(getApplicationContext(), date_text + "으로 알람이 설정되었습니다!", Toast.LENGTH_SHORT).show();
 
                 //  Preference에 설정한 값 저장
@@ -56,10 +55,8 @@ public class ReserveActivity_attend extends AppCompatActivity {
                 editor.putLong("nextNotifyTime", (long) calendar.getTimeInMillis());
                 editor.apply();
 
-
                 diaryNotification(calendar);
             }
-
         });
 
         Button buttonOff = (Button) findViewById(R.id.buttonOff);
@@ -77,37 +74,30 @@ public class ReserveActivity_attend extends AppCompatActivity {
         PackageManager pm = this.getPackageManager();
         ComponentName receiver = new ComponentName(this, DeviceBootReceiver_attend.class);
         Intent alarmIntent = new Intent(this, AlarmReceiver_attend.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-
 
         // 사용자가 매일 알람을 허용했다면
         if (dailyNotify) {
-
-
             if (alarmManager != null) {
-
-                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),AlarmManager.INTERVAL_HOUR, pendingIntent);
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-                }
+                //long interval=1000*60;//1s=1000, 1m=1000*60, 1h=1000*60*60//AlarmManager.INTERVAL_DAY*7
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY*7, pendingIntent);
             }
 
             // 부팅 후 실행되는 리시버 사용가능하게 설정
             pm.setComponentEnabledSetting(receiver,
                     PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
                     PackageManager.DONT_KILL_APP);
-
         }
         else{
-
             if(alarmManager!=null){
                 Toast.makeText(getApplicationContext(), "알람이 해제되었습니다!", Toast.LENGTH_SHORT).show();
                 alarmManager.cancel(pendingIntent);
             }
+            // 부팅 후 실행되는 리시버 사용가능하게 설정
+            pm.setComponentEnabledSetting(receiver,
+                    PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                    PackageManager.DONT_KILL_APP);
         }
-
-
     }
 }

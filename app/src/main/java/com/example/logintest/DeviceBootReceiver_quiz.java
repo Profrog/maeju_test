@@ -38,7 +38,7 @@ public class DeviceBootReceiver_quiz extends BroadcastReceiver {
             nextNotifyTime.setTimeInMillis(sharedPreferences.getLong("nextNotifyTime", millis));
 
             if (current_calendar.after(nextNotifyTime)) {
-                nextNotifyTime.add(Calendar.DATE, 1);
+                nextNotifyTime.add(Calendar.DATE, 7);
             }
 
             Date currentDateTime = nextNotifyTime.getTime();
@@ -47,8 +47,7 @@ public class DeviceBootReceiver_quiz extends BroadcastReceiver {
 
 
             if (manager != null) {
-                manager.setRepeating(AlarmManager.RTC_WAKEUP, nextNotifyTime.getTimeInMillis(),
-                        AlarmManager.INTERVAL_DAY, pendingIntent);
+                manager.setRepeating(AlarmManager.RTC_WAKEUP, nextNotifyTime.getTimeInMillis(),AlarmManager.INTERVAL_DAY*7, pendingIntent);
             }
         }
     }

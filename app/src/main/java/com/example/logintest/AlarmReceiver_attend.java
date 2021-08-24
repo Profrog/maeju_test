@@ -74,7 +74,7 @@ public class AlarmReceiver_attend extends BroadcastReceiver {
             Calendar nextNotifyTime = Calendar.getInstance();
 
             // 내일 같은 시간으로 알람시간 결정
-            nextNotifyTime.add(Calendar.HOUR, 1);
+            nextNotifyTime.add(Calendar.DATE, 7);
 
             //  Preference에 설정한 값 저장
             SharedPreferences.Editor editor = context.getSharedPreferences("daily alarm", MODE_PRIVATE).edit();
@@ -82,7 +82,7 @@ public class AlarmReceiver_attend extends BroadcastReceiver {
             editor.apply();
 
             Date currentDateTime = nextNotifyTime.getTime();
-            String date_text = new SimpleDateFormat("yyyy년 MM월 dd일 EE요일 a hh시 mm분 ss초", Locale.getDefault()).format(currentDateTime);
+            String date_text = new SimpleDateFormat("yyyy년 MM월 dd일 EE요일 a hh시 mm분", Locale.getDefault()).format(currentDateTime);
             Toast.makeText(context.getApplicationContext(),"다음 알람은 " + date_text + "으로 알람이 설정되었습니다!", Toast.LENGTH_SHORT).show();
         }
     }

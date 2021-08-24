@@ -26,9 +26,8 @@ public class ReserveActivity_quiz extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.reserve_attend);
+        setContentView(R.layout.reserve_quiz);
         Calendar calendar = Calendar.getInstance();
-
 
         Button buttonOn = (Button) findViewById(R.id.buttonOn);
         buttonOn.setOnClickListener(new View.OnClickListener() {
@@ -37,7 +36,7 @@ public class ReserveActivity_quiz extends AppCompatActivity {
 
                 dailyNotify=true;
                 calendar.setTimeInMillis(System.currentTimeMillis());
-                calendar.set(Calendar.DAY_OF_WEEK,Calendar.TUESDAY);
+                calendar.set(Calendar.DAY_OF_WEEK,Calendar.FRIDAY);
                 calendar.set(Calendar.HOUR_OF_DAY, 21);
                 calendar.set(Calendar.MINUTE, 0);
                 calendar.set(Calendar.SECOND, 0);
@@ -56,10 +55,8 @@ public class ReserveActivity_quiz extends AppCompatActivity {
                 editor.putLong("nextNotifyTime", (long) calendar.getTimeInMillis());
                 editor.apply();
 
-
                 diaryNotification(calendar);
             }
-
         });
 
         Button buttonOff = (Button) findViewById(R.id.buttonOff);
@@ -80,35 +77,27 @@ public class ReserveActivity_quiz extends AppCompatActivity {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
 
-
         // 사용자가 매일 알람을 허용했다면
         if (dailyNotify) {
-
-
             if (alarmManager != null) {
-
-                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                        AlarmManager.INTERVAL_DAY, pendingIntent);
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-                }
+                //long interval=1000*60;//1s=1000, 1m=1000*60, 1h=1000*60*60//AlarmManager.INTERVAL_DAY*7
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY*7, pendingIntent);
             }
 
             // 부팅 후 실행되는 리시버 사용가능하게 설정
             pm.setComponentEnabledSetting(receiver,
                     PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
                     PackageManager.DONT_KILL_APP);
-
         }
         else{
-
             if(alarmManager!=null){
                 Toast.makeText(getApplicationContext(), "알람이 해제되었습니다!", Toast.LENGTH_SHORT).show();
                 alarmManager.cancel(pendingIntent);
             }
+            // 부팅 후 실행되는 리시버 사용가능하게 설정
+            pm.setComponentEnabledSetting(receiver,
+                    PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+                    PackageManager.DONT_KILL_APP);
         }
-
-
     }
 }

@@ -74,7 +74,7 @@ public class AlarmReceiver_quiz extends BroadcastReceiver {
             Calendar nextNotifyTime = Calendar.getInstance();
 
             // 내일 같은 시간으로 알람시간 결정
-            nextNotifyTime.add(Calendar.DATE, 1);
+            nextNotifyTime.add(Calendar.DATE, 7);
 
             //  Preference에 설정한 값 저장
             SharedPreferences.Editor editor = context.getSharedPreferences("daily alarm", MODE_PRIVATE).edit();
