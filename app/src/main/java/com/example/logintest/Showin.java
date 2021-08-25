@@ -59,6 +59,8 @@ public class Showin extends AppCompatActivity{
         setContentView(R.layout.show_in);
         name02 = ((ProfileActivity)ProfileActivity.profileact).returnName();
         id02 = ((ProfileActivity)ProfileActivity.profileact).returnHakbun();
+        email02 = ((ProfileActivity)ProfileActivity.profileact).returnEmail();
+
         getItems();
         //getDataFromAPI();
     }
@@ -116,9 +118,16 @@ public class Showin extends AppCompatActivity{
                 //System.out.println("hi" + id_excel);
 
                 if (id_excel.equals(id02)) {
+                    TextView n1 = (TextView) findViewById(R.id.name);
+                    TextView i1 = (TextView) findViewById(R.id.id);
+                    TextView e1 = (TextView) findViewById(R.id.email);
                     TextView r1 = (TextView) findViewById(R.id.rank);
                     TextView m1 = (TextView) findViewById(R.id.mainpoint);
                     TextView q1 = (TextView) findViewById(R.id.quizpoint);
+
+                    n1.setText("name " + name02);
+                    i1.setText("id " + id02);
+                    e1.setText("email " + email02);
                     r1.setText("rank " + rank_excel);
                     m1.setText("main point " + mp_excel);
                     q1.setText("quiz point " + qp_excel);

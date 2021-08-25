@@ -205,5 +205,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     public String returnName(){return name;}
     public String returnHakbun(){return hakbun;}
+    public String returnEmail(){return email;}
 
 }
