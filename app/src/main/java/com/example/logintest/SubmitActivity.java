@@ -170,6 +170,8 @@ public class SubmitActivity extends AppCompatActivity implements View.OnClickLis
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
         requestQueue.add(stringRequest);
+
+
     }
 
     // 선택된 이미지를 띄운 상태로 화면 전환
@@ -216,6 +218,7 @@ public class SubmitActivity extends AppCompatActivity implements View.OnClickLis
             }
             else {
                 addUser();
+                startActivity(new Intent(this, CheckActivity.class));
             }
         }
         if(v == buttonAddImage){
