@@ -25,6 +25,19 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -43,6 +56,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ProgressDialog progressDialog;
     //define firebase object
     FirebaseAuth firebaseAuth;
+
+    private String name;
+    private String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +145,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                             finish();
-                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+
+                            //mingyu
+                            name = level;
+                            id = email.substring(0,8);
+                            addItemToSheet();
+                            Intent intent1 = new Intent(getApplicationContext(), ProfileActivity.class);
+                            startActivity(intent1);
+                            //startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+
+
                         } else {
                             //에러발생시
                             textviewMessage.setText("에러유형\n - 이미 등록된 이메일  \n -암호 최소 6자리 이상 \n - 서버에러");
@@ -176,5 +201,51 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onSupportNavigateUp(){
         onBackPressed();; // 뒤로가기 버튼이 눌렸을시
         return super.onSupportNavigateUp(); // 뒤로가기 버튼
+    }
+
+
+    private void addItemToSheet() {
+
+        final ProgressDialog loading = ProgressDialog.show(this,"Adding Item","Please wait");
+        //final String name = editTextItemName.getText().toString().trim();
+        //final String brand = editTextBrand.getText().toString().trim();
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbzCWvjr0WR3meO4Fn_g8U_EkMXvRz1aOWdcctPOt1aMKMW_Sa46gGjC_02QWc602cLP/exec",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        //loading.dismiss();
+                        //Toast.makeText(AddItem.this,response,Toast.LENGTH_LONG).show();
+                        //Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                        //startActivity(intent);
+
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                }
+        ) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> parmas = new HashMap<>();
+
+                //here we pass params
+                parmas.put("id",id);
+                parmas.put("name",name);
+                return parmas;
+            }
+        };
+
+        int socketTimeOut = 50000;// u can change this .. here it is 50 seconds
+
+        RetryPolicy retryPolicy = new DefaultRetryPolicy(socketTimeOut, 0, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+        stringRequest.setRetryPolicy(retryPolicy);
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(stringRequest);
+
     }
 }
