@@ -6,7 +6,9 @@ import static com.example.logintest.Configuration.KEY_IMAGE;
 import static com.example.logintest.Configuration.KEY_NAME;
 import static com.example.logintest.Configuration.KEY_WEEK;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -200,7 +202,21 @@ public class SubmitActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         if(v == buttonSubmit){
-            addUser();
+            if (userImage == null) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("warning").setMessage("이미지가 선택되지 않았습니다. 확인해주십시오.");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+            else {
+                addUser();
+            }
         }
         if(v == buttonAddImage){
             showFileChooser();
