@@ -141,8 +141,7 @@ public class SubmitActivity extends AppCompatActivity implements View.OnClickLis
                 response -> {
                     loading.dismiss();
                     Toast.makeText(SubmitActivity.this,response,Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-                    startActivity(intent);
+                    startActivity(new Intent(this, CheckActivity.class));
                 },
                 error -> Toast.makeText(SubmitActivity.this,error.toString(),Toast.LENGTH_LONG).show()){
             @Override
@@ -218,7 +217,6 @@ public class SubmitActivity extends AppCompatActivity implements View.OnClickLis
             }
             else {
                 addUser();
-                startActivity(new Intent(this, CheckActivity.class));
             }
         }
         if(v == buttonAddImage){

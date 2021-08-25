@@ -24,6 +24,5 @@ public class CheckActivity extends AppCompatActivity implements View.OnClickList
         if(v == btn_check){
             startActivity(new Intent(this, MainActivity.class));
         }
-
     }
 }
