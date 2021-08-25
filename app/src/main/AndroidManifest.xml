@@ -26,8 +26,6 @@
         <activity android:name=".Guidein"></activity>
         <activity android:name=".CheckActivity"/>
         <activity android:name=".SubmitActivity"/>
-        <activity android:name=".ReserveActivity_attend"/>
-        <activity android:name=".ReserveActivity_quiz"/>
         <activity android:name=".alarmActivity"/>
         <receiver android:name=".DeviceBootReceiver_attend"
             android:enabled="true"
