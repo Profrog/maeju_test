@@ -1,6 +1,8 @@
 package com.example.logintest;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -46,31 +48,46 @@ public class FindActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    private void findPassword() {
+        progressDialog.setMessage("처리중입니다. 잠시 기다려 주세요...");
+        progressDialog.show();
+        //비밀번호 재설정 이메일 보내기
+        String emailAddress = editTextUserEmail.getText().toString().trim();
+
+        firebaseAuth.sendPasswordResetEmail(emailAddress)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(FindActivity.this, "이메일을 보냈습니다.", Toast.LENGTH_LONG).show();
+                            finish();
+                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                        } else {
+                            Toast.makeText(FindActivity.this, "메일 보내기 실패!", Toast.LENGTH_LONG).show();
+                        }
+                        progressDialog.dismiss();
+                    }
+                });
+    }
+
     @Override
     public void onClick(View view) {
         if(view == buttonFind){
-            progressDialog.setMessage("처리중입니다. 잠시 기다려 주세요...");
-            progressDialog.show();
-            //비밀번호 재설정 이메일 보내기
-            String emailAddress = editTextUserEmail.getText().toString().trim();
+            if (editTextUserEmail.getText().toString().replace(" ", "").equals("")) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("warning").setMessage("이메일이 비어있습니다. 확인해주십시오.");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
 
-            firebaseAuth.sendPasswordResetEmail(emailAddress)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if(task.isSuccessful()){
-                                Toast.makeText(FindActivity.this, "이메일을 보냈습니다.", Toast.LENGTH_LONG).show();
-                                finish();
-                                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-                            } else {
-                                Toast.makeText(FindActivity.this, "메일 보내기 실패!", Toast.LENGTH_LONG).show();
-                            }
-                            progressDialog.dismiss();
-                        }
-                    });
-
-
-
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+            else {
+                findPassword();
+            }
         }
     }
     public boolean onSupportNavigateUp(){
