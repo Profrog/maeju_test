@@ -185,6 +185,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }
 
 
+    public void set(View v){
+        Intent intent1 = new Intent(getApplicationContext(), alarmActivity.class);
+        startActivity(intent1);
+    }
+
     public void guide(View v)
     {
         Intent intent1 = new Intent(getApplicationContext(), Guidein.class);
