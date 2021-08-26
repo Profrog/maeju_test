@@ -210,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //final String name = editTextItemName.getText().toString().trim();
         //final String brand = editTextBrand.getText().toString().trim();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbzCWvjr0WR3meO4Fn_g8U_EkMXvRz1aOWdcctPOt1aMKMW_Sa46gGjC_02QWc602cLP/exec",
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://script.google.com/macros/s/AKfycbymOkQjVlUZZkUax7ejVLDCGqgeygIOPEBtETQ0XrkiEcWqTSB1mkd9isJaCPQqVbtl/exec",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
