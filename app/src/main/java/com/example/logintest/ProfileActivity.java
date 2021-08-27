@@ -88,7 +88,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_profile);
 
         //initializing views
-        textViewUserEmail = (TextView) findViewById(R.id.textviewUserEmail);
+        //textViewUserEmail = (TextView) findViewById(R.id.textviewUserEmail);
         buttonLogout = (Button) findViewById(R.id.buttonLogout);
         textivewDelete = (TextView) findViewById(R.id.textviewDelete);
 
@@ -212,6 +212,106 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }
 
 
+    private void parseItems(String json) {
+
+
+        try {
+
+            JSONObject jobj = new JSONObject(json);
+            JSONArray jarray = jobj.getJSONArray("items");
+
+            for (int i = 0; i < jarray.length(); i++) {
+
+                JSONObject jo = jarray.getJSONObject(i);
+
+                String id_excel = jo.getString("id");
+                System.out.println(id_excel);
+                String name_excel = jo.getString("name");
+                String mp_excel = jo.getString("mainpoint");
+                String qp_excel = jo.getString("quizpoint");
+                String rank_excel = jo.getString("rank");
+                //System.out.println("hi" + id_excel);
+
+                if (id_excel.equals(id02)) {
+                    TextView n1 = (TextView) findViewById(R.id.name);
+                    //TextView i1 = (TextView) findViewById(R.id.id);
+                    TextView e1 = (TextView) findViewById(R.id.email);
+                    //TextView r1 = (TextView) findViewById(R.id.rank);
+                    TextView m1 = (TextView) findViewById(R.id.mainpoint);
+                    TextView q1 = (TextView) findViewById(R.id.quizpoint);
+
+                    n1.setText("name " + name02);
+                    //i1.setText("id " + id02);
+                    e1.setText("email " + email02);
+                    //r1.setText("rank " + rank_excel);
+                    m1.setText(mp_excel);
+                    q1.setText(qp_excel);
+                    break;
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    //showin
+
+    private void getDataFromAPI() {
+        // creating a string variable for URL.
+        String url = "https://spreadsheets.google.com/feeds/list/1Kg7Qjdwd-HnxaiRSK9fB0UkrOp0nOvKPSiONb50mEP8/od6/public/values?alt=json";
+
+        // creating a new variable for our request queue
+        RequestQueue queue = Volley.newRequestQueue(ProfileActivity.this);
+
+        // creating a variable for our JSON object request and passing our URL to it.
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    JSONObject feedObj = response.getJSONObject("feed");
+                    JSONArray entryArray = feedObj.getJSONArray("entry");
+                    for(int i=0; i<entryArray.length(); i++){
+                        JSONObject entryObj = entryArray.getJSONObject(i);
+                        String id_excel = entryObj.getJSONObject("gsx$id").getString("$t");
+                        String name_excel = entryObj.getJSONObject("gsx$name").getString("$t");
+                        String mp_excel = entryObj.getJSONObject("gsx$mainpoint").getString("$t");
+                        String qp_excel = entryObj.getJSONObject("gsx$quizpoint").getString("$t");
+                        String rank_excel = entryObj.getJSONObject("gsx$rank").getString("$t");
+                        //userModalArrayList.add(new UserModal(firstName, lastName, email, avatar));
+
+                        System.out.println("heelo" + id02);
+
+                        if(id_excel.equals(id02)){
+                            //TextView r1 = (TextView)findViewById(R.id.rank);
+                            TextView m1 = (TextView)findViewById(R.id.mainpoint);
+                            TextView q1 = (TextView)findViewById(R.id.quizpoint);
+                            //r1.setText("rank " + rank_excel);
+                            m1.setText(mp_excel);
+                            q1.setText(qp_excel);
+                            break;
+                        }
+                        //System.out.println("heelo" + firstName);
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // handline on error listener method.
+                //Toast.makeText(MainActivity.this, "Fail to get data..", Toast.LENGTH_SHORT).show();
+            }
+        });
+        // calling a request queue method
+        // and passing our json object
+        queue.add(jsonObjectRequest);
+    }
+
+
     public void set(View v){
         Intent intent1 = new Intent(getApplicationContext(), alarmActivity.class);
         startActivity(intent1);
@@ -254,104 +354,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
-    private void parseItems(String json) {
-
-
-        try {
-
-            JSONObject jobj = new JSONObject(json);
-            JSONArray jarray = jobj.getJSONArray("items");
-
-            for (int i = 0; i < jarray.length(); i++) {
-
-                JSONObject jo = jarray.getJSONObject(i);
-
-                String id_excel = jo.getString("id");
-                System.out.println(id_excel);
-                String name_excel = jo.getString("name");
-                String mp_excel = jo.getString("mainpoint");
-                String qp_excel = jo.getString("quizpoint");
-                String rank_excel = jo.getString("rank");
-                //System.out.println("hi" + id_excel);
-
-                if (id_excel.equals(id02)) {
-                    TextView n1 = (TextView) findViewById(R.id.name);
-                    TextView i1 = (TextView) findViewById(R.id.id);
-                    TextView e1 = (TextView) findViewById(R.id.email);
-                    TextView r1 = (TextView) findViewById(R.id.rank);
-                    TextView m1 = (TextView) findViewById(R.id.mainpoint);
-                    TextView q1 = (TextView) findViewById(R.id.quizpoint);
-
-                    n1.setText("name " + name02);
-                    i1.setText("id " + id02);
-                    e1.setText("email " + email02);
-                    r1.setText("rank " + rank_excel);
-                    m1.setText("main point " + mp_excel);
-                    q1.setText("quiz point " + qp_excel);
-                    break;
-                }
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-    }
-
     //showin
-
-    private void getDataFromAPI() {
-        // creating a string variable for URL.
-        String url = "https://spreadsheets.google.com/feeds/list/1Kg7Qjdwd-HnxaiRSK9fB0UkrOp0nOvKPSiONb50mEP8/od6/public/values?alt=json";
-
-        // creating a new variable for our request queue
-        RequestQueue queue = Volley.newRequestQueue(ProfileActivity.this);
-
-        // creating a variable for our JSON object request and passing our URL to it.
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    JSONObject feedObj = response.getJSONObject("feed");
-                    JSONArray entryArray = feedObj.getJSONArray("entry");
-                    for(int i=0; i<entryArray.length(); i++){
-                        JSONObject entryObj = entryArray.getJSONObject(i);
-                        String id_excel = entryObj.getJSONObject("gsx$id").getString("$t");
-                        String name_excel = entryObj.getJSONObject("gsx$name").getString("$t");
-                        String mp_excel = entryObj.getJSONObject("gsx$mainpoint").getString("$t");
-                        String qp_excel = entryObj.getJSONObject("gsx$quizpoint").getString("$t");
-                        String rank_excel = entryObj.getJSONObject("gsx$rank").getString("$t");
-                        //userModalArrayList.add(new UserModal(firstName, lastName, email, avatar));
-
-                        System.out.println("heelo" + id02);
-
-                        if(id_excel.equals(id02)){
-                            TextView r1 = (TextView)findViewById(R.id.rank);
-                            TextView m1 = (TextView)findViewById(R.id.mainpoint);
-                            TextView q1 = (TextView)findViewById(R.id.quizpoint);
-                            r1.setText("rank " + rank_excel);
-                            m1.setText("main point " + mp_excel);
-                            q1.setText("quiz point " + qp_excel);
-                            break;
-                        }
-                        //System.out.println("heelo" + firstName);
-                    }
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                // handline on error listener method.
-                //Toast.makeText(MainActivity.this, "Fail to get data..", Toast.LENGTH_SHORT).show();
-            }
-        });
-        // calling a request queue method
-        // and passing our json object
-        queue.add(jsonObjectRequest);
-    }
 
     public void refresh(View v)
     {
@@ -359,6 +362,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         id02 = ((ProfileActivity)ProfileActivity.profileact).returnHakbun();
         getItems();
     }
+
+    public void goprofile(View v)
+    {
+        Intent intent1 = new Intent(getApplicationContext(), DetailActivity.class);
+        startActivity(intent1);
+    }
+
 
     //이름,학번 리턴함수
     public String returnName(){return name;}
