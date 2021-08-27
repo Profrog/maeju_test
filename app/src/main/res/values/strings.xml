@@ -4,6 +4,8 @@
     <string name="user_name">user_name</string>
     <string name="add_image">add_image</string>
     <string name="제출">제출</string>
+    <string name="제출하기">제출하기</string>
+
     <style name="some_id">
 
         <item name="android:textSize">
