@@ -1,5 +1,6 @@
 package com.example.logintest;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -95,7 +96,7 @@ public class FindActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         if(view==gotomain){
-            startActivity(new Intent(this,StartActivity.class));
+            startActivity(new Intent(this,LoginActivity.class));
         }
     }
     @Override public void onBackPressed() { }
