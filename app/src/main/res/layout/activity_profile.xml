@@ -146,7 +146,7 @@
 
 
     <View
-        android:id="@+id/line_2"
+        android:id="@+id/line_12"
         android:layout_below="@+id/mainpoint"
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
@@ -160,7 +160,7 @@
         android:id="@+id/buttonGuide"
         android:backgroundTint= "@color/white_a"
         android:textColor="@android:color/black"
-        android:layout_below="@+id/line_2"
+        android:layout_below="@+id/line_12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
