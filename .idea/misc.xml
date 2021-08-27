@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Nami/AndroidStudioProjects/maeju/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/Nami/AndroidStudioProjects/maeju/app/src/main/res/layout/activity_start.xml" value="0.33" />
+        <entry key="..\:/Users/Nami/AndroidStudioProjects/maeju/app/src/main/res/layout/login_activity.xml" value="0.33" />
         <entry key="..\:/Users/ache1/AndroidStudioProjects/maeju_test/app/src/main/res/layout/activity_checkout.xml" value="0.18020833333333333" />
         <entry key="..\:/Users/ache1/AndroidStudioProjects/maeju_test/app/src/main/res/layout/activity_main.xml" value="0.18020833333333333" />
         <entry key="..\:/Users/ache1/AndroidStudioProjects/maeju_test/app/src/main/res/layout/activity_profile.xml" value="0.18020833333333333" />

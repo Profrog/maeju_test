@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //initializing views
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
         editTextPassword = (EditText) findViewById(R.id.editTextPassword);
-        textviewSingin= (TextView) findViewById(R.id.textViewSignin);
+       /* textviewSingin= (TextView) findViewById(R.id.textViewSignin);*/
         textviewMessage = (TextView) findViewById(R.id.textviewMessage);
         textviewFindPassword = (TextView) findViewById(R.id.textViewFindpassword);
         buttonSignin = (Button) findViewById(R.id.buttonSignup);
@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //button click event
         buttonSignin.setOnClickListener(this);
-        textviewSingin.setOnClickListener(this);
+//        textviewSingin.setOnClickListener(this);
         textviewFindPassword.setOnClickListener(this);
 
 
@@ -126,10 +126,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(view == buttonSignin) {
             userLogin();
         }
-        if(view == textviewSingin) {
-            finish();
-            startActivity(new Intent(this, MainActivity.class));
-        }
+//        if(view == textviewSingin) {
+//            finish();
+//            startActivity(new Intent(this, MainActivity.class));
+//        }
         if(view == textviewFindPassword) {
             finish();
             startActivity(new Intent(this, FindActivity.class));

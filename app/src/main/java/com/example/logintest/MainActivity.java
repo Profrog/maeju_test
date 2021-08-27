@@ -81,14 +81,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-        textviewSingin= (TextView) findViewById(R.id.textViewSignin);
+        /*textviewSingin= (TextView) findViewById(R.id.textViewSignin);*/
         textviewMessage = (TextView) findViewById(R.id.textviewMessage);
         buttonSignup = (Button) findViewById(R.id.buttonSignup);
         progressDialog = new ProgressDialog(this);
 
         //button click event
         buttonSignup.setOnClickListener(this);
-        textviewSingin.setOnClickListener(this);
+//        textviewSingin.setOnClickListener(this);
     }
 
     //Firebse creating a new user
@@ -193,10 +193,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             registerUser();
         }
 
-        if(view == textviewSingin) {
-            //TODO
-            startActivity(new Intent(this, LoginActivity.class)); //추가해 줄 로그인 액티비티
-        }
+//        if(view == textviewSingin) {
+//            //TODO
+//            startActivity(new Intent(this, LoginActivity.class)); //추가해 줄 로그인 액티비티
+//        }
     }
 //    public boolean onSupportNavigateUp(){
 //        onBackPressed();; // 뒤로가기 버튼이 눌렸을시

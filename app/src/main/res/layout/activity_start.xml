@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_marginTop="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+
+        android:text="하루에 한 번씩"
+
+        android:textColor="#000000"
+        android:textSize="15sp" />
+    <TextView
+
+        android:layout_marginTop="1dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+
+        android:text="MAEJU"
+        android:textColor="#000000"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/mvtosignup"
+        android:layout_width="200dp"
+        android:layout_height="61dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:text="시작하기"
+        android:textColor="#000000"
+        app:backgroundTint="#61863F"
+        app:cornerRadius="0dp" />
+
+    <Button
+        android:id="@+id/mvtologin"
+        android:layout_width="200dp"
+        android:layout_height="61dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="계정이 이미 있어요"
+
+        android:textColor="#000000"
+        app:backgroundTint="#ffffff"
+        app:cornerRadius="0dp"
+        app:strokeColor="#000000"
+        app:strokeWidth="1dp" />
+
+    <!--<TextView
+        android:id="@+id/textViewSignin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:gravity="center_horizontal"
+        android:text="회원이시면 여기에서 로그인 해주세요."
+        android:textAlignment="center" />-->
+
+
+</LinearLayout>
