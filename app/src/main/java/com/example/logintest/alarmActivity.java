@@ -186,7 +186,7 @@ public class alarmActivity extends AppCompatActivity {
         if (dailyNotify_quiz) {
             if (alarmManager != null) {
                 //long interval=1000*60;//1s=1000, 1m=1000*60, 1h=1000*60*60//AlarmManager.INTERVAL_DAY*7
-                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),1000*60, pendingIntent);
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),AlarmManager.INTERVAL_DAY*7, pendingIntent);
             }
             dailyNotify_quiz=false;
             // 부팅 후 실행되는 리시버 사용가능하게 설정
