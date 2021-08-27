@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F9F9F6"
+    >
+    <ImageButton
+        android:id="@+id/gotoprofile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24"
+        android:layout_marginLeft="10dp"
+        android:backgroundTint="#F9F9F6"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+
+
+        <TextView
+            android:layout_marginTop="23dp"
+            android:layout_marginLeft="40dp"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rect"
+            android:visibility="visible" />
+        <TextView
+
+            android:layout_width="100dp"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="left"
+            android:layout_marginLeft="44dp"
+            android:text="내 계정"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+
+    </FrameLayout>
+
+
+<!--로그아웃,회원탈퇴부분-->
+    <TextView
+        android:id="@+id/textlogout"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="60dp"
+        android:text="로그아웃"
+        android:backgroundTint="#000000"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"
+        android:background="#C4C4C4"
+        />
+
+
+    <TextView
+        android:id="@+id/textdelete"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="30dp"
+        android:text="회원탈퇴"
+        android:backgroundTint="#000000"
+        android:textColor="#000000"
+        android:textSize="18sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3px"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp"
+        android:background="#C4C4C4"
+        />
+
+
+
+
+
+
+
+</LinearLayout>
