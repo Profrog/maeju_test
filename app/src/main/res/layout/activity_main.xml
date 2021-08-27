@@ -82,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="\@inha.edu를 포함해야 합니다." />
+        android:text="학번\@inha.edu로 가입해주세요." />
 
     <EditText
         android:textSize="18sp"
