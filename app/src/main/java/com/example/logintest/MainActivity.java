@@ -198,10 +198,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, LoginActivity.class)); //추가해 줄 로그인 액티비티
         }
     }
-    public boolean onSupportNavigateUp(){
-        onBackPressed();; // 뒤로가기 버튼이 눌렸을시
-        return super.onSupportNavigateUp(); // 뒤로가기 버튼
-    }
+//    public boolean onSupportNavigateUp(){
+//        onBackPressed();; // 뒤로가기 버튼이 눌렸을시
+//        return super.onSupportNavigateUp(); // 뒤로가기 버튼
+//    }
 
 
     private void addItemToSheet() {

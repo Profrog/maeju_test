@@ -151,11 +151,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
                                         Log.d(TAG, "회원 탈퇴가 완료되었습니다.");
+                                        Intent intent22 = new Intent(getApplicationContext(),LoginActivity.class);
+                                        startActivity(intent22);
                                     }
                                 }
                             });
-                    Toast.makeText(getApplicationContext(),"회원 탈퇴가 완료되었습니다.",
-                            Toast.LENGTH_SHORT).show();
+
                 }
             });
             myAlertBuilder.setNegativeButton("아니요", new DialogInterface.OnClickListener() {
@@ -171,11 +172,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         }
     }
+    @Override public void onBackPressed() { }
 
-    public boolean onSupportNavigateUp(){
+
+    /*public boolean onSupportNavigateUp(){
         onBackPressed();; // 뒤로가기 버튼이 눌렸을시
         return super.onSupportNavigateUp(); // 뒤로가기 버튼
-    }
+    }*/
 
 
     public void enter(View v)
