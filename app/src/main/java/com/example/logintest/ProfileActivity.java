@@ -64,8 +64,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     //view objects
     private TextView textViewUserEmail;
 
-    private Button buttonLogout;
-    private TextView textivewDelete;
+
 
     //추가
     //firebase data
@@ -89,8 +88,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         //initializing views
         //textViewUserEmail = (TextView) findViewById(R.id.textviewUserEmail);
-        buttonLogout = (Button) findViewById(R.id.buttonLogout);
-        textivewDelete = (TextView) findViewById(R.id.textviewDelete);
+
 
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -127,9 +125,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         }
 
-        //logout button event
-        buttonLogout.setOnClickListener(this);
-        textivewDelete.setOnClickListener(this);
 
         // 주차 인증하기
         addSubmit=(Button)findViewById(R.id.btn_submit);
@@ -150,51 +145,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        if (view == buttonLogout) {
-            firebaseAuth.signOut();
-            finish();
-            startActivity(new Intent(this, LoginActivity.class));
-        }
 
-        if(view == textivewDelete) {
-            AlertDialog.Builder myAlertBuilder =
-                    new AlertDialog.Builder(ProfileActivity.this);
-            // alert의 title과 Messege 세팅
-            myAlertBuilder.setTitle("경고");
-            myAlertBuilder.setMessage("정말 회원 탈퇴를 진행하시겠습니까?");
-            // 버튼 추가 (Ok 버튼과 Cancle 버튼 )
-            myAlertBuilder.setPositiveButton("예",new DialogInterface.OnClickListener(){
-                public void onClick(DialogInterface dialog,int which){
-                    // OK 버튼을 눌렸을 경우
-
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-                    user.delete()
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                        Log.d(TAG, "회원 탈퇴가 완료되었습니다.");
-                                        Intent intent22 = new Intent(getApplicationContext(),LoginActivity.class);
-                                        startActivity(intent22);
-                                    }
-                                }
-                            });
-
-                }
-            });
-            myAlertBuilder.setNegativeButton("아니요", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    // Cancle 버튼을 눌렸을 경우
-                    Toast.makeText(getApplicationContext(),"회원 탈퇴가 취소되었습니다.",
-                            Toast.LENGTH_SHORT).show();
-                }
-            });
-            // Alert를 생성해주고 보여주는 메소드(show를 선언해야 Alert가 생성됨)
-            myAlertBuilder.show();
-
-        }
     }
     @Override public void onBackPressed() { }
 
