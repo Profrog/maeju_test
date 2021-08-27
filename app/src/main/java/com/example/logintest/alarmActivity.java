@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -47,19 +48,23 @@ public class alarmActivity extends AppCompatActivity {
         Button btn_attend = (Button) findViewById(R.id.btn_attend);
         if(pendingIntent_attend==null){
             btn_attend.setText("ON");
+            btn_attend.setBackgroundColor(Color.parseColor("#A2C97F"));
             dailyNotify_attend=true;
         }
         else{
             btn_attend.setText("OFF");
+            btn_attend.setBackgroundColor(Color.parseColor("#FFFFFF"));
         }
         //퀴즈
         Button btn_quiz = (Button) findViewById(R.id.btn_quiz);
         if(pendingIntent_quiz==null){
             btn_quiz.setText("ON");
+            btn_quiz.setBackgroundColor(Color.parseColor("#A2C97F"));
             dailyNotify_quiz=true;
         }
         else{
             btn_quiz.setText("OFF");
+            btn_quiz.setBackgroundColor(Color.parseColor("#FFFFFF"));
         }
 
 
@@ -71,6 +76,7 @@ public class alarmActivity extends AppCompatActivity {
                 //알람의 상태
                 if(dailyNotify_attend){//알람을 켤 경우
                     btn_attend.setText("OFF");
+                    btn_attend.setBackgroundColor(Color.parseColor("#FFFFFF"));
                     dailyNotify_attend=true;
                     calendar_attend.setTimeInMillis(System.currentTimeMillis());
                     calendar_attend.set(Calendar.DAY_OF_WEEK,Calendar.SUNDAY);
@@ -96,6 +102,7 @@ public class alarmActivity extends AppCompatActivity {
                 }
                 else{//알람을 해제할 경우
                     dailyNotify_attend=false;
+                    btn_attend.setBackgroundColor(Color.parseColor("#A2C97F"));
                     btn_attend.setText("ON");
                     diaryNotification_attend(calendar_attend);
                 }
@@ -108,6 +115,7 @@ public class alarmActivity extends AppCompatActivity {
                 //알람의 상태
                 if(dailyNotify_quiz){//알람을 켤 경우
                     btn_quiz.setText("OFF");
+                    btn_quiz.setBackgroundColor(Color.parseColor("#FFFFFF"));
                     dailyNotify_quiz=true;
                     calendar_quiz.setTimeInMillis(System.currentTimeMillis());
                     calendar_quiz.set(Calendar.DAY_OF_WEEK,Calendar.FRIDAY);
@@ -134,6 +142,7 @@ public class alarmActivity extends AppCompatActivity {
                 else{//알람을 해제할 경우
                     dailyNotify_attend=false;
                     btn_quiz.setText("ON");
+                    btn_quiz.setBackgroundColor(Color.parseColor("#A2C97F"));
                     diaryNotification_quiz(calendar_quiz);
                 }
             }
