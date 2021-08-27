@@ -101,7 +101,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
                                         Log.d(TAG, "회원 탈퇴가 완료되었습니다.");
-                                        Intent intent22 = new Intent(getApplicationContext(), SignUpActivity.class);
+                                        Intent intent22 = new Intent(getApplicationContext(), MainActivity.class);
                                         startActivity(intent22);
                                     }
                                 }
