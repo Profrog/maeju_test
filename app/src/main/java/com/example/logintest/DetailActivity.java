@@ -1,5 +1,6 @@
 package com.example.logintest;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -100,7 +101,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
                                         Log.d(TAG, "회원 탈퇴가 완료되었습니다.");
-                                        Intent intent22 = new Intent(getApplicationContext(), LoginActivity.class);
+                                        Intent intent22 = new Intent(getApplicationContext(), SignUpActivity.class);
                                         startActivity(intent22);
                                     }
                                 }
