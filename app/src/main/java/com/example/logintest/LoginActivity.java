@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +30,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     EditText editTextEmail;
     EditText editTextPassword;
     Button buttonSignin;
+    ImageButton gotomain;
     TextView textviewSingin;
     TextView textviewMessage;
     TextView textviewFindPassword;
@@ -58,8 +60,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         textviewFindPassword = (TextView) findViewById(R.id.textViewFindpassword);
         buttonSignin = (Button) findViewById(R.id.buttonSignup);
         progressDialog = new ProgressDialog(this);
+        gotomain=(ImageButton) findViewById(R.id.gotomain);
 
         //button click event
+        gotomain.setOnClickListener(this);
         buttonSignin.setOnClickListener(this);
 //        textviewSingin.setOnClickListener(this);
         textviewFindPassword.setOnClickListener(this);
@@ -133,6 +137,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(view == textviewFindPassword) {
             finish();
             startActivity(new Intent(this, FindActivity.class));
+        }
+        if(view==gotomain){
+            startActivity(new Intent(this,StartActivity.class));
         }
     }
     @Override public void onBackPressed() { }

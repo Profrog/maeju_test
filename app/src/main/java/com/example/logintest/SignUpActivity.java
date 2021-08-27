@@ -27,6 +27,7 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Button sign_up;
 
+
     //로그아웃 기능 구현 위함
     private FirebaseAuth firebaseAuth;
 

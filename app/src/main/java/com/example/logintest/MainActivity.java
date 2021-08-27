@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     Button buttonSignup;
+    ImageButton gotomain;
     TextView textviewSingin;
     TextView textviewMessage;
     ProgressDialog progressDialog;
@@ -84,10 +86,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         /*textviewSingin= (TextView) findViewById(R.id.textViewSignin);*/
         textviewMessage = (TextView) findViewById(R.id.textviewMessage);
         buttonSignup = (Button) findViewById(R.id.buttonSignup);
+        gotomain=(ImageButton) findViewById(R.id.gotomain);
         progressDialog = new ProgressDialog(this);
 
         //button click event
         buttonSignup.setOnClickListener(this);
+        gotomain.setOnClickListener(this);
 //        textviewSingin.setOnClickListener(this);
     }
 
@@ -191,6 +195,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(view == buttonSignup) {
             //TODO
             registerUser();
+        }
+        if(view==gotomain){
+            startActivity(new Intent(this,StartActivity.class));
         }
 
 //        if(view == textviewSingin) {

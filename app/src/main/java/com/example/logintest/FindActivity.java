@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,6 +32,7 @@ public class FindActivity extends AppCompatActivity implements View.OnClickListe
     private ProgressDialog progressDialog;
     //define firebase object
     private FirebaseAuth firebaseAuth;
+    ImageButton gotomain;
 
 
 
@@ -43,8 +45,10 @@ public class FindActivity extends AppCompatActivity implements View.OnClickListe
         buttonFind = (Button) findViewById(R.id.buttonFind);
         progressDialog = new ProgressDialog(this);
         firebaseAuth = FirebaseAuth.getInstance();
+        gotomain=(ImageButton) findViewById(R.id.gotomain);
 
         buttonFind.setOnClickListener(this);
+        gotomain.setOnClickListener(this);
 
     }
 
@@ -88,6 +92,10 @@ public class FindActivity extends AppCompatActivity implements View.OnClickListe
             else {
                 findPassword();
             }
+        }
+
+        if(view==gotomain){
+            startActivity(new Intent(this,StartActivity.class));
         }
     }
     public boolean onSupportNavigateUp(){
