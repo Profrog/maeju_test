@@ -135,8 +135,5 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             startActivity(new Intent(this, FindActivity.class));
         }
     }
-    public boolean onSupportNavigateUp(){
-        onBackPressed();; // 뒤로가기 버튼이 눌렸을시
-        return super.onSupportNavigateUp(); // 뒤로가기 버튼
-    }
+   
 }

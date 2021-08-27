@@ -154,8 +154,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                                     }
                                 }
                             });
-                    Toast.makeText(getApplicationContext(),"회원 탈퇴가 완료되었습니다.",
-                            Toast.LENGTH_SHORT).show();
+
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+
                 }
             });
             myAlertBuilder.setNegativeButton("아니요", new DialogInterface.OnClickListener() {
