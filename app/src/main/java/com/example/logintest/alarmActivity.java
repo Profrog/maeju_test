@@ -9,8 +9,11 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.style.BackgroundColorSpan;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +33,8 @@ public class alarmActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.alarm_set);
+
+
 
         //출석 달력
         Calendar calendar_attend = Calendar.getInstance();
@@ -66,6 +71,16 @@ public class alarmActivity extends AppCompatActivity {
             btn_quiz.setText("OFF");
             btn_quiz.setBackgroundColor(Color.parseColor("#FFFFFF"));
         }
+
+        //뒤로가기 버튼 눌렀을 때
+        ImageButton img=(ImageButton) findViewById(R.id.pro);
+        img.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View arg0){
+                Intent intent1 = new Intent(getApplicationContext(), ProfileActivity.class);
+                startActivity(intent1);
+            }
+        });
 
 
         //버튼 눌렀을 때

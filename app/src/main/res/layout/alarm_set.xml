@@ -5,19 +5,54 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#F9F9F6"
     >
-
-        <TextView
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/set_text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        >
+        <ImageButton
+            android:id="@+id/pro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_ios_24"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="#F9F9F6"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="50dp"
-            android:textSize="20dp"
-            android:text="앱 설정"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:id="@+id/set_text"/>
+            />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-10dp"
+            android:layout_marginTop="65dp"
+            >
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="38dp"
+                android:background="@drawable/rect"
+
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="133dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="앱 설정"
+                android:layout_marginLeft="4dp"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+    </LinearLayout>
+
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
