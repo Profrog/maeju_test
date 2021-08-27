@@ -1,4 +1,5 @@
 package com.example.logintest;
+import android.app.Activity;
 import android.content.Context;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;

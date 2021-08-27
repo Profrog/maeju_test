@@ -98,6 +98,7 @@ public class FindActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this,StartActivity.class));
         }
     }
+    @Override public void onBackPressed() { }
     public boolean onSupportNavigateUp(){
         onBackPressed();; // 뒤로가기 버튼이 눌렸을시
         return super.onSupportNavigateUp(); // 뒤로가기 버튼
