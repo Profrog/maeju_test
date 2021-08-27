@@ -18,19 +18,81 @@
         android:layout_marginBottom="16dp"
         android:orientation="vertical">
 
+        <!--
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:src="@mipmap/ic_launcher" />
-
+         -->
         <TextView
-            android:id="@+id/textviewUserLevel"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:gravity= "center"
+            android:text="name" />
+
+        <TextView
+            android:id="@+id/id"
+            android:layout_below="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:gravity= "center"
+            android:text="id" />
+
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_below="@+id/id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:gravity= "center"
+            android:text="email" />
+
+        <TextView
+            android:id="@+id/rank"
+            android:layout_below="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:gravity= "center"
+            android:text="rank" />
+
+
+        <TextView
+            android:id="@+id/mainpoint"
+            android:layout_below="@+id/rank"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:text="main_point" />
+
+        <TextView
+            android:id="@+id/quizpoint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mainpoint"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:text="quiz_point" />
+
+        <Button
+            android:id="@+id/buttonRefresh"
+            android:text="새로고침"
+            android:layout_below="@+id/quizpoint"
+            android:onClick="refresh"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="5dp"
-            android:text="" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/textviewUserEmail"
