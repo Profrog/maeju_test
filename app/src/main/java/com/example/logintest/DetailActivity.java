@@ -67,6 +67,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         textivewDelete.setOnClickListener(this);
         gotoprofile.setOnClickListener(this);
 
+        firebaseAuth=FirebaseAuth.getInstance();
+
 
     }
 
