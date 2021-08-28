@@ -5,5 +5,12 @@
     <string name="add_image">add_image</string>
     <string name="제출">제출</string>
     <string name="제출하기">제출하기</string>
-
+    <string name="공지사항">공지사항</string>
+    <string name="앱설정">앱 설정</string>
+    <string name="새로고침">새로고침</string>
+    <string name="과제제출하기">과제 제출하기</string>
+    <string name="MAEJU">MAEJU</string>
+    <string name="name">name</string>
+    <string name="total_main_point">총 과제 포인트</string>
+    <string name="total_quiz_point">총 퀴즈 포인트</string>
 </resources>

@@ -14,14 +14,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:gravity="top"
-        android:text="@string/MAEJU"
+        android:text="MAEJU"
         android:textAppearance="@style/maeju"
         app:layout_constraintBottom_toTopOf="@+id/my_account"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.372" />
+        app:layout_constraintTop_toTopOf="parent" />
+    
 
     <TextView
         android:id="@+id/my_account"
@@ -36,26 +36,41 @@
         android:textAppearance="@style/some_id"
         app:layout_constraintBottom_toTopOf="@+id/profile_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.774" />
+        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <View
         android:id="@+id/profile_image"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_below="@+id/my_account"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginBottom="20dp"
         android:background="@drawable/ipp"
-        app:layout_constraintBottom_toTopOf="@+id/line_1"
         app:layout_constraintEnd_toStartOf="@+id/name"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.899" />
+        tools:layout_editor_absoluteY="98dp" />
+
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_toRightOf="@+id/profile_image"
+        android:fontFamily="@font/roboto"
+        android:gravity="center"
+        android:onClick="goprofile"
+        android:text="name"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.357"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_account" />
 
     <TextView
         android:id="@+id/email"
@@ -71,99 +86,69 @@
         android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/line_1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toEndOf="@+id/profile_image"
         app:layout_constraintTop_toBottomOf="@+id/name"
-        app:layout_constraintVertical_bias="0.333" />
-
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/roboto"
-        android:gravity="center"
-        android:onClick="goprofile"
-        android:text="@string/name"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.355"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_account" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <View
         android:id="@+id/line_1"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginBottom="24dp"
         android:layout_weight="1"
         android:background="#000000"
         app:layout_constraintBottom_toTopOf="@+id/line_5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/total_main_point"
-        android:layout_width="90dp"
-        android:layout_height="23dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:fontFamily="@font/roboto"
         android:gravity="top"
-        android:text="@string/total_main_point"
+        android:text="총 과제 포인트"
         android:textAppearance="@style/some_id"
-        app:layout_constraintBottom_toTopOf="@+id/mainpoint"
-        app:layout_constraintEnd_toStartOf="@+id/line_5"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line_1"
-        app:layout_constraintVertical_bias="0.736" />
-
-
-    <View
-        android:id="@+id/line_5"
-        android:layout_width="1dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="220dp"
-        android:layout_weight="1"
-        android:background="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/total_quiz_point"
-        android:layout_width="90dp"
-        android:layout_height="23dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:gravity="top"
-        android:text="@string/total_quiz_point"
-        android:textAppearance="@style/some_id"
-        app:layout_constraintBottom_toTopOf="@+id/quizpoint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toEndOf="@+id/line_5"
-        app:layout_constraintTop_toBottomOf="@+id/line_1"
-        app:layout_constraintVertical_bias="0.75" />
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="209dp" />
 
     <TextView
         android:id="@+id/mainpoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/line_1"
-        android:layout_marginBottom="32dp"
-        android:fontFamily="@font/roboto"
         android:text="main_point"
         android:textColor="@android:color/black"
         android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/line_2"
-        app:layout_constraintEnd_toStartOf="@+id/line_5"
-        app:layout_constraintHorizontal_bias="0.456"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="250dp" />
+
+
+    <View
+        android:id="@+id/line_5"
+        android:layout_width="1dp"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        android:background="#000000"
+        tools:layout_editor_absoluteX="205dp"
+        tools:layout_editor_absoluteY="209dp" />
+
+    <TextView
+        android:id="@+id/total_quiz_point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:fontFamily="@font/roboto"
+        android:gravity="top"
+        android:text="총 퀴즈 포인트"
+        android:textAppearance="@style/some_id"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="258dp"
+        tools:layout_editor_absoluteY="209dp" />
 
     <TextView
         android:id="@+id/quizpoint"
@@ -173,16 +158,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/line_2"
-        android:fontFamily="@font/roboto"
         android:text="quiz_point"
         android:textColor="@android:color/black"
         android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/line_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
-        app:layout_constraintStart_toEndOf="@+id/line_5"
-        app:layout_constraintTop_toBottomOf="@+id/line_1"
-        app:layout_constraintVertical_bias="0.707" />
+        tools:layout_editor_absoluteX="244dp"
+        tools:layout_editor_absoluteY="250dp" />
 
     <View
         android:id="@+id/line_2"
@@ -190,10 +170,8 @@
         android:layout_height="1dp"
         android:layout_weight="1"
         android:background="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line_5"
-        app:layout_constraintVertical_bias="0.087"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="332dp" />
 
     <Button
         android:id="@+id/buttonGuide"
@@ -203,35 +181,23 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="28dp"
         android:background="@drawable/upload_btn"
         android:backgroundTint="#f9f9f6"
-        android:fontFamily="@font/roboto"
-        android:gravity="left"
         android:onClick="guide"
         android:text="@string/공지사항"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:backgroundTint="#f9f9f6"
-        app:layout_constraintBottom_toTopOf="@+id/line_3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.207"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line_2"
-        app:layout_constraintVertical_bias="0.304" />
+        tools:layout_editor_absoluteX="71dp"
+        tools:layout_editor_absoluteY="367dp" />
 
     <View
         android:id="@+id/line_3"
         android:layout_width="335dp"
         android:layout_height="1dp"
-        android:layout_marginTop="104dp"
         android:layout_weight="1"
         android:background="#C4C4C4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line_2"
-        app:layout_constraintVertical_bias="0.035" />
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="443dp" />
 
     <Button
         android:id="@+id/btn_set"
@@ -239,21 +205,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/line_3"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/upload_btn"
-        android:backgroundTint="#f9f9f6"
-        android:fontFamily="@font/roboto"
-        android:gravity="left"
+        android:backgroundTint="@color/white_a"
         android:onClick="set"
         android:text="@string/앱설정"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:backgroundTint="#f9f9f6"
-        app:layout_constraintBottom_toTopOf="@+id/line_4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.207"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line_3"
-        app:layout_constraintVertical_bias="0.485" />
+        tools:layout_editor_absoluteX="72dp"
+        tools:layout_editor_absoluteY="486dp" />
 
     <View
         android:id="@+id/line_4"
@@ -261,11 +219,8 @@
         android:layout_height="1dp"
         android:layout_weight="1"
         android:background="#C4C4C4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line_3"
-        app:layout_constraintVertical_bias="0.326" />
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="552dp" />
 
     <Button
         android:id="@+id/buttonRefresh"
@@ -273,42 +228,30 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/line_4"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/upload_btn"
-        android:backgroundTint="#f9f9f6"
-        android:fontFamily="@font/roboto"
-        android:gravity="left"
+        android:backgroundTint="@color/white_a"
         android:onClick="refresh"
         android:text="@string/새로고침"
         android:textColor="@android:color/black"
         android:textSize="18sp"
-        app:backgroundTint="#f9f9f6"
-        app:layout_constraintBottom_toTopOf="@+id/btn_submit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.207"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line_4"
-        app:layout_constraintVertical_bias="0.282" />
+        tools:layout_editor_absoluteX="71dp"
+        tools:layout_editor_absoluteY="575dp" />
 
     <Button
         android:id="@+id/btn_submit"
         android:layout_width="295dp"
         android:layout_height="67dp"
-
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="24dp"
         android:background="@drawable/submit_btn"
+        android:backgroundTint="@color/dark_green"
         android:fontFamily="@font/roboto"
         android:text="@string/과제제출하기"
         android:textColor="@android:color/black"
         app:backgroundTint="#61863F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line_4"
-        app:layout_constraintVertical_bias="1.0" />
-
-
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

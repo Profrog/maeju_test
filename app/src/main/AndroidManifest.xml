@@ -24,7 +24,6 @@
         <activity android:name=".FindActivity"/>
         <activity android:name=".LoginActivity"/>
         <activity android:name=".ProfileActivity"/>
-        <activity android:name=".Showin"></activity>
         <activity android:name=".Guidein"></activity>
         <activity android:name=".CheckActivity"/>
         <activity android:name=".SubmitActivity"/>

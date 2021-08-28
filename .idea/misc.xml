@@ -3,20 +3,60 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Nami/AndroidStudioProjects/realclone/app/src/main/res/layout/activity_detail.xml" value="0.25833333333333336" />
-        <entry key="..\:/Users/Nami/AndroidStudioProjects/realclone/app/src/main/res/layout/activity_find.xml" value="0.25833333333333336" />
-        <entry key="..\:/Users/Nami/AndroidStudioProjects/realclone/app/src/main/res/layout/activity_main.xml" value="0.25833333333333336" />
-        <entry key="..\:/Users/Nami/AndroidStudioProjects/realclone/app/src/main/res/layout/activity_profile.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/Nami/AndroidStudioProjects/maeju/app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.31025641025641026" />
+        <entry key="..\:/Users/Nami/AndroidStudioProjects/maeju/app/src/main/res/drawable/rect.xml" value="0.31025641025641026" />
+        <entry key="..\:/Users/Nami/AndroidStudioProjects/maeju/app/src/main/res/layout/activity_checkout.xml" value="0.2989583333333333" />
+        <entry key="..\:/Users/Nami/AndroidStudioProjects/maeju/app/src/main/res/layout/activity_find.xml" value="0.5" />
+        <entry key="..\:/Users/Nami/AndroidStudioProjects/maeju/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/Nami/AndroidStudioProjects/maeju/app/src/main/res/layout/activity_profile.xml" value="0.2989583333333333" />
+        <entry key="..\:/Users/Nami/AndroidStudioProjects/maeju/app/src/main/res/layout/activity_sign_up.xml" value="0.2989583333333333" />
+        <entry key="..\:/Users/Nami/AndroidStudioProjects/maeju/app/src/main/res/layout/activity_start.xml" value="0.33" />
+        <entry key="..\:/Users/Nami/AndroidStudioProjects/maeju/app/src/main/res/layout/activity_submit.xml" value="0.2989583333333333" />
+        <entry key="..\:/Users/Nami/AndroidStudioProjects/maeju/app/src/main/res/layout/alarm_set.xml" value="0.2989583333333333" />
+        <entry key="..\:/Users/Nami/AndroidStudioProjects/maeju/app/src/main/res/layout/guide_in.xml" value="0.2989583333333333" />
+        <entry key="..\:/Users/Nami/AndroidStudioProjects/maeju/app/src/main/res/layout/login_activity.xml" value="0.33" />
+        <entry key="..\:/Users/ache1/AndroidStudioProjects/maeju_test/app/src/main/res/layout/activity_checkout.xml" value="0.18020833333333333" />
+        <entry key="..\:/Users/ache1/AndroidStudioProjects/maeju_test/app/src/main/res/layout/activity_main.xml" value="0.18020833333333333" />
+        <entry key="..\:/Users/ache1/AndroidStudioProjects/maeju_test/app/src/main/res/layout/activity_profile.xml" value="0.18020833333333333" />
+        <entry key="..\:/Users/ache1/AndroidStudioProjects/maeju_test/app/src/main/res/layout/show_in.xml" value="0.13768115942028986" />
         <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/drawable/ic_launcher_background.xml" value="0.28854166666666664" />
+        <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/drawable/rectangle_8.xml" value="0.11481481481481481" />
+        <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/drawable/rectangle_9.xml" value="0.11481481481481481" />
+        <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/drawable/style.xml" value="0.11481481481481481" />
+        <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/layout/activity_checkout.xml" value="0.1875" />
         <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/layout/activity_find.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/layout/activity_main.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/layout/activity_profile.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/layout/activity_sign_up.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/layout/activity_submit.xml" value="0.14855072463768115" />
+        <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/layout/alarm_set.xml" value="0.33" />
+        <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/layout/guide_in.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/layout/login_activity.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/layout/reserve.xml" value="0.18072916666666666" />
         <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/layout/reserve_attend.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/layout/reserve_quiz.xml" value="0.27239583333333334" />
         <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/layout/show_in.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/hobby/AndroidStudioProjects/maeju_test-master/app/src/main/res/layout/strings.xml" value="0.12228260869565218" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/drawable/green_bar.xml" value="0.26564102564102565" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26564102564102565" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/drawable/line_1.xml" value="0.26666666666666666" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/drawable/line_2.xml" value="0.26666666666666666" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/drawable/line_5.xml" value="0.26666666666666666" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/drawable/rect.xml" value="0.2703125" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/drawable/submit_btn.xml" value="0.26564102564102565" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/drawable/upload_btn.xml" value="0.26564102564102565" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/layout-v21/activity_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/layout/activity_checkout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/layout/activity_detail.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/layout/activity_find.xml" value="0.22327898550724637" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/layout/activity_main.xml" value="0.22327898550724637" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/layout/activity_profile.xml" value="0.264" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/layout/activity_start.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/layout/activity_submit.xml" value="0.264" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/layout/alarm_set.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/layout/login_activity.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/kimgyuri/AndroidStudioProjects/maeju_test/app/src/main/res/layout/show_in.xml" value="0.2" />
+        <entry key="..\:/maeju-check-add/maeju_test/app/src/main/res/layout/activity_checkout.xml" value="0.22" />
       </map>
     </option>
   </component>
