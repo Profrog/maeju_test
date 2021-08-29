@@ -1,97 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_a">
-
+    android:background="#F9F9F6"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/maeju"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
         android:gravity="top"
         android:text="@string/MAEJU"
         android:textAppearance="@style/maeju"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintBottom_toTopOf="@+id/my_account"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.048"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.372" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/my_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/maeju"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:gravity="top"
         android:text="내 정보"
         android:textAppearance="@style/some_id"
-        app:layout_constraintBottom_toTopOf="@+id/profile_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.774" />
+         />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp"
+        >
 
+        <View
+            android:id="@+id/profile_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/ipp"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/roboto"
+            android:onClick="goprofile"
+            android:text="@string/name"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-45dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/roboto"
+            android:text="email"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+    </LinearLayout>
     <View
-        android:id="@+id/profile_image"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_below="@+id/my_account"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="20dp"
-        android:background="@drawable/ipp"
-        app:layout_constraintBottom_toTopOf="@+id/line_1"
-        app:layout_constraintEnd_toStartOf="@+id/name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.899" />
 
-    <TextView
-        android:id="@+id/email"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/name"
-        android:layout_marginTop="16dp"
-        android:layout_toRightOf="@+id/profile_image"
-        android:fontFamily="@font/roboto"
-        android:gravity="center"
-        android:text="email"
-        android:textColor="@android:color/black"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/line_1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
-        app:layout_constraintStart_toEndOf="@+id/profile_image"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        app:layout_constraintVertical_bias="0.333" />
+        android:layout_height="1dp"
 
+        android:background="#000000" />
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:fontFamily="@font/roboto"
-        android:gravity="center"
-        android:onClick="goprofile"
-        android:text="@string/name"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.355"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_account" />
 
     <View
         android:id="@+id/line_1"
@@ -99,30 +84,71 @@
         android:layout_height="1dp"
         android:layout_weight="1"
         android:background="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/line_5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+            <TextView
+                android:id="@+id/total_quiz_point"
+                android:layout_width="90dp"
+                android:layout_height="23dp"
+                android:gravity="top"
+                android:layout_marginLeft="60dp"
+                android:text="@string/total_quiz_point"
+                android:textAppearance="@style/some_id"
+                />
 
-    <TextView
-        android:id="@+id/total_main_point"
-        android:layout_width="90dp"
-        android:layout_height="23dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:gravity="top"
-        android:text="@string/total_main_point"
-        android:textAppearance="@style/some_id"
-        app:layout_constraintBottom_toTopOf="@+id/mainpoint"
-        app:layout_constraintEnd_toStartOf="@+id/line_5"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line_1"
-        app:layout_constraintVertical_bias="0.736" />
+            <TextView
+                android:id="@+id/mainpoint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line_1"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"
+                android:fontFamily="@font/roboto"
+                android:text="main_point"
+                android:textColor="@android:color/black"
+                android:textSize="30dp"
+                />
 
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
 
+            <TextView
+                android:layout_marginLeft="50dp"
+                android:id="@+id/total_main_point"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_main_point"
+                android:textAppearance="@style/some_id"
+
+                />
+
+            <TextView
+                android:id="@+id/quizpoint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:layout_marginTop="30dp"
+                android:text="quiz_point"
+                android:layout_marginLeft="40dp"
+                android:textColor="@android:color/black"
+                android:textSize="30dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
     <View
         android:id="@+id/line_5"
         android:layout_width="1dp"
@@ -134,55 +160,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/total_quiz_point"
-        android:layout_width="90dp"
-        android:layout_height="23dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:gravity="top"
-        android:text="@string/total_quiz_point"
-        android:textAppearance="@style/some_id"
-        app:layout_constraintBottom_toTopOf="@+id/quizpoint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toEndOf="@+id/line_5"
-        app:layout_constraintTop_toBottomOf="@+id/line_1"
-        app:layout_constraintVertical_bias="0.75" />
 
-    <TextView
-        android:id="@+id/mainpoint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/line_1"
-        android:layout_marginBottom="32dp"
-        android:fontFamily="@font/roboto"
-        android:text="main_point"
-        android:textColor="@android:color/black"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/line_2"
-        app:layout_constraintEnd_toStartOf="@+id/line_5"
-        app:layout_constraintHorizontal_bias="0.456"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/quizpoint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/total_quiz_point"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/line_2"
-        android:fontFamily="@font/roboto"
-        android:text="quiz_point"
-        android:textColor="@android:color/black"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/line_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
-        app:layout_constraintStart_toEndOf="@+id/line_5"
-        app:layout_constraintTop_toBottomOf="@+id/line_1"
-        app:layout_constraintVertical_bias="0.707" />
 
     <View
         android:id="@+id/line_2"
@@ -308,7 +286,123 @@
         app:layout_constraintTop_toBottomOf="@+id/line_4"
         app:layout_constraintVertical_bias="1.0" />
 
+    <ImageButton
+        android:id="@+id/gotomain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:backgroundTint="#F9F9F6"
+        android:src="@drawable/ic_baseline_arrow_back_ios_24" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="23dp"
+            android:background="@drawable/rect"
+            android:visibility="visible" />
+
+        <TextView
+
+            android:layout_width="133dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="left"
+            android:layout_marginLeft="44dp"
+            android:layout_marginTop="15dp"
+            android:text="이메일 로그인"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+
+    </FrameLayout>
+
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        style="#000000"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="#000000"
+        android:hint="이메일 입력"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="44dp"
+        android:text="\@inha.edu를 포함해야 합니다." />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        style="#000000"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#000000"
+        android:hint="비밀번호 입력"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/buttonSignup"
+        android:layout_width="200dp"
+        android:layout_height="58dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="200dp"
+        android:text="로그인"
+        android:textColor="#000000"
+        app:backgroundTint="#61863F"
+        app:cornerRadius="0dp" />
+
+    <TextView
+        android:id="@+id/textViewFindpassword"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="비밀번호 찾기" />
+
+
+    <!--
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+&lt;!&ndash;        <TextView&ndash;&gt;
+&lt;!&ndash;            android:text="신규 회원가입"&ndash;&gt;
+&lt;!&ndash;            android:id="@+id/textViewSignin"&ndash;&gt;
+&lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;
+&lt;!&ndash;            android:layout_height="wrap_content" />&ndash;&gt;
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>-->
+
+
+    <TextView
+        android:id="@+id/textviewMessage"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

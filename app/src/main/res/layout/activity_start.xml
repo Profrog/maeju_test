@@ -17,18 +17,19 @@
         android:layout_alignParentTop="true"
         android:layout_gravity="center"
 
-        android:text="하루에 한 번씩"
+        android:text="한 주에 한 번씩"
 
         android:textColor="#000000"
         android:textSize="15sp" />
+
     <TextView
 
-        android:layout_marginTop="1dp"
-        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_gravity="center"
+        android:layout_marginTop="1dp"
 
         android:text="MAEJU"
         android:textColor="#000000"
