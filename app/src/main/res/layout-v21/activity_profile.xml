@@ -18,11 +18,10 @@
         android:textAppearance="@style/maeju"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.048" />
-
+        app:layout_constraintVertical_bias="0.022" />
 
     <TextView
         android:id="@+id/my_account"
@@ -36,7 +35,7 @@
         android:textAppearance="@style/some_id"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.092" />
@@ -54,31 +53,26 @@
         app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.152" />
+        app:layout_constraintVertical_bias="0.148" />
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="142dp"
+        android:layout_height="48dp"
         android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
         android:layout_marginEnd="70dp"
-        android:layout_marginRight="70dp"
         android:layout_toRightOf="@+id/profile_image"
         android:fontFamily="@font/roboto"
-        android:gravity="center"
-        android:minWidth="48dp"
-        android:minHeight="48dp"
         android:onClick="goprofile"
         android:text="name"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.228"
+        app:layout_constraintHorizontal_bias="0.311"
         app:layout_constraintStart_toEndOf="@+id/profile_image"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.137" />
+        app:layout_constraintVertical_bias="0.142" />
 
     <TextView
         android:id="@+id/email"
@@ -87,16 +81,18 @@
         android:layout_below="@+id/name"
         android:layout_toRightOf="@+id/profile_image"
         android:fontFamily="@font/roboto"
-        android:gravity="center"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:onClick="goprofile"
         android:text="email"
         android:textColor="@android:color/black"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintStart_toEndOf="@+id/profile_image"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.199" />
+        app:layout_constraintVertical_bias="0.206" />
 
     <View
         android:id="@+id/line_1"
@@ -141,7 +137,7 @@
         android:textSize="30dp"
         app:layout_constraintBottom_toTopOf="@+id/line_2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.215"
+        app:layout_constraintHorizontal_bias="0.197"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/total_main_point"
         app:layout_constraintVertical_bias="0.314" />
@@ -217,17 +213,18 @@
         android:layout_alignParentRight="true"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/upload_btn"
-        android:backgroundTint="#f9f9f6"
+        android:gravity="left"
         android:onClick="guide"
         android:text="@string/공지사항"
         android:textColor="@android:color/black"
         android:textSize="18sp"
+        app:backgroundTint="#f9f9f6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.207"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.548" />
+        app:layout_constraintVertical_bias="0.555" />
 
     <View
         android:id="@+id/line_3"
@@ -239,7 +236,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63" />
+        app:layout_constraintVertical_bias="0.61" />
 
     <Button
         android:id="@+id/btn_set"
@@ -247,17 +244,19 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/line_3"
         android:layout_gravity="center_horizontal"
-        android:backgroundTint="@color/white_a"
+        android:background="@drawable/upload_btn"
+        android:gravity="left"
         android:onClick="set"
         android:text="@string/앱설정"
         android:textColor="@android:color/black"
         android:textSize="18sp"
+        app:backgroundTint="#f9f9f6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintHorizontal_bias="0.207"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.704" />
+        app:layout_constraintVertical_bias="0.688" />
 
     <View
         android:id="@+id/line_4"
@@ -269,7 +268,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.749" />
+        app:layout_constraintVertical_bias="0.736" />
 
     <Button
         android:id="@+id/buttonRefresh"
@@ -277,17 +276,20 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/line_4"
         android:layout_gravity="center_horizontal"
+        android:background="@drawable/upload_btn"
         android:backgroundTint="@color/white_a"
+        android:gravity="left"
         android:onClick="refresh"
         android:text="@string/새로고침"
         android:textColor="@android:color/black"
         android:textSize="18sp"
+        app:backgroundTint="#f9f9f6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintHorizontal_bias="0.207"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.831" />
+        app:layout_constraintVertical_bias="0.816" />
 
     <Button
         android:id="@+id/btn_submit"
