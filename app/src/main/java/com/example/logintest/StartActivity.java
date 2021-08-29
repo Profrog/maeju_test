@@ -54,6 +54,11 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         buttonLogin.setOnClickListener(this);
 
     }
+    @Override
+    public void onBackPressed(){
+        moveTaskToBack(true);
+        android.os.Process.killProcess(android.os.Process.myPid());
+    }
 
     //button click event
     @Override

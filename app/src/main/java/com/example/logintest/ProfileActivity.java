@@ -147,20 +147,28 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
 
     }
-    @Override public void onBackPressed() { }
+
+    @Override
+    public void onBackPressed(){
+        startActivity(new Intent(this,StartActivity.class));
+    }
+
 
 
     /*public boolean onSupportNavigateUp(){
-        onBackPressed();; // 뒤로가기 버튼이 눌렸을시
+        onBackPressed(); // 뒤로가기 버튼이 눌렸을시
+        startActivity(new Intent(this,StartActivity.class));
+
+
         return super.onSupportNavigateUp(); // 뒤로가기 버튼
     }*/
 
 
-    public void enter(View v)
+   /* public void enter(View v)
     {
         Intent intent1 = new Intent(getApplicationContext(), Showin.class);
         startActivity(intent1);
-    }
+    }*/
 
 
     private void parseItems(String json) {
