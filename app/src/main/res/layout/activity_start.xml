@@ -9,29 +9,26 @@
 
 
     <TextView
-
         android:layout_width="wrap_content"
-        android:layout_marginTop="220dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_gravity="center"
-
-        android:text="한 주에 한 번씩"
-
+        android:layout_marginTop="220dp"
+        android:fontFamily="@font/roboto"
+        android:text="Once A Week"
         android:textColor="#000000"
         android:textSize="15sp" />
 
     <TextView
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_gravity="center"
         android:layout_marginTop="1dp"
-
-        android:text="MAEJU"
+        android:fontFamily="@font/onemobiletitle"
+        android:text="매주1과제"
         android:textColor="#000000"
         android:textSize="40sp" />
 
