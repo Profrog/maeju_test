@@ -148,6 +148,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     });
 
 
+                            progressDialog.dismiss();
                             finish();
 
                             //mingyu
@@ -213,7 +214,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void addItemToSheet() {
 
-        final ProgressDialog loading = ProgressDialog.show(this,"Adding Item","Please wait");
+//        final ProgressDialog loading = ProgressDialog.show(this,"Adding Item","Please wait");
         //final String name = editTextItemName.getText().toString().trim();
         //final String brand = editTextBrand.getText().toString().trim();
 
