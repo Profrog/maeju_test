@@ -1,4 +1,6 @@
 # maeju_test
+다운로드 경로 : https://m.onestore.co.kr/ko-kr/apps/appsDetail.omp?prodId=0000757850 
+
 ![KakaoTalk_20211202_180122547](https://user-images.githubusercontent.com/26535065/144390707-509a6259-ded7-4815-82ab-49390c75c540.jpg)
 ![KakaoTalk_20211202_180122547_01](https://user-images.githubusercontent.com/26535065/144390727-9a24e16d-a51d-4a02-a6da-d7f81a64eea1.jpg)
 ![KakaoTalk_20211202_180122547_02](https://user-images.githubusercontent.com/26535065/144390730-e48142df-133b-4496-a6f8-4500dccaa0b0.jpg)
